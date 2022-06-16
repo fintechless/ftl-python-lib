@@ -1,0 +1,53 @@
+[tool.poetry]
+name = "ftl_python_lib"
+version = "0.0.1"
+description = "Fintechless Python Library (Fintechless is the Serverless Platform for Financial Institutions and Fintechs)"
+authors = ["Fintechless <hello@fintechless.com>"]
+license = "Mozilla Public License 2.0"
+readme = "README.md"
+keywords = ["fintechless", "python", "library", "fintech", "serverless", "platform"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pendulum = "^2.1.2"
+pytz = "^2022.1"
+tzlocal = "^4.2"
+Flask = "^2.1.1"
+boto3 = "^1.21.35"
+botocore = "^1.24.35"
+confluent-kafka = "^1.8.2"
+xmltodict = "^0.12.0"
+lxml = "^4.8.0"
+mypy = "^0.931"
+mypy-boto3-dynamodb = "^1.21.34"
+mypy-boto3-s3 = "^1.21.34"
+requests = "^2.27.1"
+pika = "^1.2.0"
+SQLAlchemy = "^1.4.35"
+alembic = "^1.7.7"
+PyMySQL = "^1.0.2"
+cryptography = "^36.0.2"
+SQLAlchemy-Utils = "^0.38.2"
+bs4 = "^0.0.1"
+
+[tool.poetry.dev-dependencies]
+black = "^22.3.0"
+boto3-stubs = "^1.21.36"
+isort = "^5.10.1"
+mock = "^4.0.3"
+pyenchant = "^3.2.2"
+pylint = "^2.13.5"
+pytest = "^7.1.1"
+
+[tool.poetry.scripts]
+tests = "poetry.main:run_tests"
+lint = "poetry.main:run_lint"
+format = "poetry.main:run_format"
+
+[tool.isort]
+force_single_line="True"
+line_length=180
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
