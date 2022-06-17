@@ -8,8 +8,11 @@ Create Date: 2022-04-26 13:45:03.356686
 import sqlalchemy as sa
 from alembic import op
 
+from ftl_python_lib.core.context.environment import EnvironmentContext
 from ftl_python_lib.models.sql.member import ModelMember
 from ftl_python_lib.models.sql.microservice import ModelMicroservice
+
+ENVIRON_CONTEXT: EnvironmentContext = EnvironmentContext()
 
 # revision identifiers, used by Alembic.
 revision = "a6b2026c6047"
@@ -68,45 +71,55 @@ def upgrade():
             {
                 "id": "b14a5198-be76-4519-be17-6e6fc9f3f475",
                 "name": "Message In MSA",
-                "active": "true",
+                "active": 1,
                 "description": "Incoming Messages MicroService: receives and validates ISO 20022 message, transforms into internal format and sends to corresponding processing workflow.",
-                "path": "https://ftl-api-runtime-default-us-east-1-123456789012.s3.amazonaws.com/git/fintechless/ftl-msa-msg-in/main",
+                "path": "https://"
+                + ENVIRON_CONTEXT.runtime_bucket
+                + "/git/fintechless/ftl-msa-msg-in/main",
                 "runtime": "python",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
                 "id": "fc387ab0-6905-4f39-991e-090002345c9f",
                 "name": "Message PACS 008 MSA",
-                "active": "true",
+                "active": 1,
                 "description": "PACS 008 Messages MicroService: receives internal format incoming message, processes according pacs 008 specific workflow and sends internal format outgoing message.",
-                "path": "https://ftl-api-runtime-default-us-east-1-123456789012.s3.amazonaws.com/git/fintechless/ftl-msa-msg-pacs-008/main",
+                "path": "https://"
+                + ENVIRON_CONTEXT.runtime_bucket
+                + "/git/fintechless/ftl-msa-msg-pacs-008/main",
                 "runtime": "python",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
                 "id": "c0eb4932-81de-48f2-a691-cdfa9533a947",
                 "name": "Message Out MSA",
-                "active": "true",
+                "active": 1,
                 "description": "Outgoing Messages MicroService: receives internal format message, transforms into ISO 20022 format and notifies appropriate client.",
-                "path": "https://ftl-api-runtime-default-us-east-1-123456789012.s3.amazonaws.com/git/fintechless/ftl-msa-msg-out/main",
+                "path": "https://"
+                + ENVIRON_CONTEXT.runtime_bucket
+                + "/git/fintechless/ftl-msa-msg-out/main",
                 "runtime": "python",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
                 "id": "d20ea2c7-3f1b-4f31-ae6a-6c84eaa91f8c",
                 "name": "RabbitMQ In MSA",
-                "active": "false",
+                "active": 0,
                 "description": "Incoming RabbitMQ MicroService: pulls messages from RabbitMQ incoming queue and pushes them into Fintechless API.",
-                "path": "https://ftl-api-runtime-default-us-east-1-123456789012.s3.amazonaws.com/git/fintechless/ftl-msa-rmq-in/main",
+                "path": "https://"
+                + ENVIRON_CONTEXT.runtime_bucket
+                + "/git/fintechless/ftl-msa-rmq-in/main",
                 "runtime": "python",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
                 "id": "9efe2dd6-2e27-444d-9b1f-718f80c33292",
                 "name": "RabbitMQ Out MSA",
-                "active": "false",
+                "active": 0,
                 "description": "Outgoing RabbitMQ MicroService: pulls messages from Fintechless API and pushes them into RabbitMQ outgoing queue.",
-                "path": "https://ftl-api-runtime-default-us-east-1-123456789012.s3.amazonaws.com/git/fintechless/ftl-msa-rmq-out/main",
+                "path": "https://"
+                + ENVIRON_CONTEXT.runtime_bucket
+                + "/git/fintechless/ftl-msa-rmq-out/main",
                 "runtime": "python",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },

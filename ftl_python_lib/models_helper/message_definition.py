@@ -440,10 +440,10 @@ class HelperMessageDefinition:
             if complex_type is not None:
                 search = complex_type.find("xs:sequence")
 
-                if search.is_(None):
+                if search is None:
                     search = complex_type.find("xs:simpleContent")
 
-                if search.is_(None):
+                if search is None:
                     search = complex_type.find("xs:choice")
 
                 children = search.find_all("xs:element")
