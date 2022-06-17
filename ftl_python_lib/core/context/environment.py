@@ -188,10 +188,10 @@ class EnvironmentContext:
     @property
     def aws_cognito_user_pool_id(self) -> str:
         """
-        Get AWS_COGNITO_USWR_POOL_ID env variable value
+        Get AWS_COGNITO_USER_POOL_ID env variable value
         """
 
-        return self.__get_value(key="AWS_COGNITO_USWR_POOL_ID")
+        return self.__get_value(key="AWS_COGNITO_USER_POOL_ID")
 
     @property
     def aws_cognito_client_secret(self) -> str:
