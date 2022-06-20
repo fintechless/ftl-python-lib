@@ -80,7 +80,7 @@ def upgrade():
                 "type_id": "c0297a2d-d0f4-49ec-89f5-7422bf465fdf",
                 "name": "Payment Clearing",
                 "description": "MicroServices driven workflow that accepts and processes Payments Clearing and Settlement (aka PACS) related messages.",
-                "active": "true",
+                "active": 1,
                 "microservices": """[
                     "b14a5198-be76-4519-be17-6e6fc9f3f475",
                     "fc387ab0-6905-4f39-991e-090002345c9f",
@@ -93,7 +93,7 @@ def upgrade():
                 "type_id": "c0297a2d-d0f4-49ec-89f5-7422bf465fdf",
                 "name": "Payment Initiation",
                 "description": "MicroServices driven workflow that accepts and processes Payments Initiation (aka PAIN) related messages.",
-                "active": "false",
+                "active": 0,
                 "microservices": """[
                     "b14a5198-be76-4519-be17-6e6fc9f3f475",
                     "c0eb4932-81de-48f2-a691-cdfa9533a947"
@@ -105,7 +105,7 @@ def upgrade():
                 "type_id": "c0297a2d-d0f4-49ec-89f5-7422bf465fdf",
                 "name": "Payment Clearing (RabbitMQ)",
                 "description": "MicroServices driven workflow that accepts and processes Payments Clearing and Settlement (aka PACS) related messages via RabbitMQ.",
-                "active": "false",
+                "active": 0,
                 "microservices": """[
                     "d20ea2c7-3f1b-4f31-ae6a-6c84eaa91f8c",
                     "b14a5198-be76-4519-be17-6e6fc9f3f475",
@@ -120,7 +120,7 @@ def upgrade():
                 "type_id": "c0297a2d-d0f4-49ec-89f5-7422bf465fdf",
                 "name": "Payment Initiation (RabbitMQ)",
                 "description": "MicroServices driven workflow that accepts and processes Payments Initiation (aka PAIN) related messages via RabbitMQ.",
-                "active": "false",
+                "active": 0,
                 "microservices": """[
                     "d20ea2c7-3f1b-4f31-ae6a-6c84eaa91f8c",
                     "b14a5198-be76-4519-be17-6e6fc9f3f475",

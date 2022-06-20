@@ -1,7 +1,6 @@
 """Create records related to one another via SQLAlchemy's ORM."""
 
 import re
-from types import NoneType
 from zipfile import ZipFile
 
 import requests
@@ -130,7 +129,7 @@ class HelperMessageParser:
 
         _message_category = _message_category_helper.get_by_name(name=unique_type)
 
-        if isinstance(_message_category, NoneType):
+        if _message_category is None:
             _message_category = _message_category_helper.create(
                 message_category_new=ModelMessageCategory(
                     name=msg[0:4], description=desc
@@ -148,7 +147,6 @@ class HelperMessageParser:
         _all_messages = _message_helper.get_all_unique_keys()
 
         if msg not in _all_messages:
-            # response = requests.get(url)
             try:
                 filename = wget.download(url)
                 _final_file_name = filename

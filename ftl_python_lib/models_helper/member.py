@@ -57,7 +57,7 @@ class HelperMember:
                 .first()
             )
 
-            if isinstance(member, NoneType):
+            if member is None:
                 response = self.create(
                     member_new=ModelMember(auth_id=id, email=auth_email),
                     owner_member_id=id,
@@ -246,38 +246,3 @@ class HelperMember:
                 owner_member_id=new_member["owner"],
             )
         return response
-
-    def confirm(self, owner_member_id: str, email: str, code: str):
-        response = self.__cognito.confirm(email, code)
-        if response["code"] == 200:
-            member = (
-                self.__session.query(ModelMember)
-                .filter(
-                    and_(
-                        ModelMember.email == email,
-                        ModelMember.auth_id.isnot(None),
-                        ModelMember.deleted_by.is_(None),
-                        ModelMember.deleted_at.is_(None),
-                    )
-                )
-                .first()
-            )
-            self.update(
-                member_update=ModelMember(
-                    id=str(uuid.uuid4()),
-                    child_id=member.id,
-                    reference_id=member.reference_id,
-                    auth_id=member.auth_id,
-                    email=member.email,
-                    first_name=member.first_name,
-                    last_name=member.last_name,
-                    avatar=member.avatar,
-                    role=member.role,
-                    invite=text("false"),
-                ),
-                owner_member_id=owner_member_id,
-            )
-        return response
-
-    def resend_confirm_code(self, owner_member_id: str, email):
-        return self.__cognito.resend_confirm_code(email)

@@ -1,7 +1,7 @@
 """Create records related to one another via SQLAlchemy's ORM."""
 
-import uuid
 import os
+import uuid
 
 from sqlalchemy import and_
 from sqlalchemy import asc
