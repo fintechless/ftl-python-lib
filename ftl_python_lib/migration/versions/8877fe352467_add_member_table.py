@@ -8,7 +8,11 @@ Create Date: 2022-04-26 13:40:24.736856
 import sqlalchemy as sa
 from alembic import op
 
+from ftl_python_lib.core.context.environment import EnvironmentContext
+from ftl_python_lib.core.providers.aws.cognito import ProviderCognito
 from ftl_python_lib.models.sql.member import ModelMember
+
+ENVIRON_CONTEXT: EnvironmentContext = EnvironmentContext()
 
 # revision identifiers, used by Alembic.
 revision = "8877fe352467"
@@ -54,13 +58,21 @@ def upgrade():
 
     op.execute(create_trigger.replace("__tablename__", ModelMember.__tablename__))
 
+    __cognito = ProviderCognito(
+        request_context=None,
+        environ_context=ENVIRON_CONTEXT,
+    )
+    response = __cognito.invite(ENVIRON_CONTEXT.owner_email)
+
     op.bulk_insert(
         ModelMember.__table__,
         [
             {
                 "id": "cb308772-c49d-11ec-9d64-0242ac120002",
                 "auth_id": "cb308772-c49d-11ec-9d64-0242ac120002",
-                "name": "Fintechless Admin",
+                "first_name": ENVIRON_CONTEXT.owner_first_name,
+                "last_name": ENVIRON_CONTEXT.owner_last_name,
+                "auth_id": response.response["data"]["User"]["Username"],
                 "role": "owner",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             }
