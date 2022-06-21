@@ -416,3 +416,27 @@ class EnvironmentContext:
         """
 
         return self.__get_value(key="MESSAGE_DEFINITIONS_HOST")
+
+    @property
+    def owner_first_name(self) -> str:
+        """
+        Get FTL_OWNER_FIRST_NAME env variable value
+        """
+
+        return self.__get_value(key="FTL_OWNER_FIRST_NAME")
+
+    @property
+    def owner_last_name(self) -> str:
+        """
+        Get FTL_OWNER_LAST_NAME env variable value
+        """
+
+        return self.__get_value(key="FTL_OWNER_LAST_NAME")
+
+    @property
+    def owner_email(self) -> str:
+        """
+        Get FTL_OWNER_EMAIL env variable value
+        """
+
+        return self.__get_value(key="FTL_OWNER_EMAIL")
