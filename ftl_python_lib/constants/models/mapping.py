@@ -5,8 +5,13 @@ Constants for Mapping
 from enum import Enum
 
 
-class ConstantsMappingInFailedOut(Enum):
-    PACS_002 = "pacs.008"
+class ConstantsMappingInFailedOut(dict):
+    @staticmethod
+    def which(key: str):
+        return {
+            "pacs.008": "pacs.002",
+            "pacs.002": "pacs.002",
+        }.get(key)
 
 
 class ConstantsMappingSourceType(Enum):

@@ -490,11 +490,7 @@ class TypeReceivedMessage:
 
     @property
     def message_type_out_failed(self) -> str:
-        return (
-            ConstantsMappingInFailedOut(value=self.__message_type)
-            .name.lower()
-            .replace("_", ".")
-        )
+        return ConstantsMappingInFailedOut.which(key=self.__message_type)
 
     @property
     def storage_path(self) -> TypeS3Object:
