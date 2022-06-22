@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ftl_python_lib"
-version = "0.0.3"
+version = "0.0.4"
 description = "Fintechless Python Library (Fintechless is the Serverless Platform for Financial Institutions and Fintechs)"
 authors = ["Fintechless <hello@fintechless.com>"]
 license = "Mozilla Public License 2.0"
@@ -15,7 +15,6 @@ tzlocal = "^4.2"
 Flask = "^2.1.1"
 boto3 = "^1.21.35"
 botocore = "^1.24.35"
-confluent-kafka = "^1.8.2"
 xmltodict = "^0.12.0"
 lxml = "^4.8.0"
 mypy = "^0.931"
@@ -29,6 +28,7 @@ PyMySQL = "^1.0.2"
 cryptography = "^36.0.2"
 SQLAlchemy-Utils = "^0.38.2"
 bs4 = "^0.0.1"
+confluent-kafka = "1.8.2"
 
 [tool.poetry.dev-dependencies]
 black = "^22.3.0"
