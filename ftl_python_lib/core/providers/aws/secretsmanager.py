@@ -57,8 +57,7 @@ class ProviderSecretsManager:
                 f"Retrieved value: secretsmanager: {self.__secretsmanager_name}"
             )
 
-            database_secrets = json.loads(response["SecretString"])
-            return database_secrets
+            return json.loads(response["SecretString"])
         except botocore.exceptions.ClientError as exc:
             if exc.response.get("Error").get("Code") == "NoSuchKey":
                 LOGGER.logger.error(
