@@ -85,14 +85,14 @@ uvloop = ["uvloop (>=0.15.2)"]
 
 [[package]]
 name = "boto3"
-version = "1.24.14"
+version = "1.24.15"
 description = "The AWS SDK for Python"
 category = "main"
 optional = false
 python-versions = ">= 3.7"
 
 [package.dependencies]
-botocore = ">=1.27.14,<1.28.0"
+botocore = ">=1.27.15,<1.28.0"
 jmespath = ">=0.7.1,<2.0.0"
 s3transfer = ">=0.6.0,<0.7.0"
 
@@ -101,8 +101,8 @@ crt = ["botocore[crt] (>=1.21.0,<2.0a0)"]
 
 [[package]]
 name = "boto3-stubs"
-version = "1.24.14"
-description = "Type annotations for boto3 1.24.14 generated with mypy-boto3-builder 7.7.1"
+version = "1.24.15"
+description = "Type annotations for boto3 1.24.15 generated with mypy-boto3-builder 7.7.1"
 category = "dev"
 optional = false
 python-versions = ">=3.6"
@@ -130,6 +130,7 @@ appconfigdata = ["mypy-boto3-appconfigdata (>=1.24.0,<1.25.0)"]
 appflow = ["mypy-boto3-appflow (>=1.24.0,<1.25.0)"]
 appintegrations = ["mypy-boto3-appintegrations (>=1.24.0,<1.25.0)"]
 application-autoscaling = ["mypy-boto3-application-autoscaling (>=1.24.0,<1.25.0)"]
+datasync = ["mypy-boto3-datasync (>=1.24.0,<1.25.0)"]
 application-insights = ["mypy-boto3-application-insights (>=1.24.0,<1.25.0)"]
 applicationcostprofiler = ["mypy-boto3-applicationcostprofiler (>=1.24.0,<1.25.0)"]
 appmesh = ["mypy-boto3-appmesh (>=1.24.0,<1.25.0)"]
@@ -189,7 +190,6 @@ customer-profiles = ["mypy-boto3-customer-profiles (>=1.24.0,<1.25.0)"]
 databrew = ["mypy-boto3-databrew (>=1.24.0,<1.25.0)"]
 dataexchange = ["mypy-boto3-dataexchange (>=1.24.0,<1.25.0)"]
 datapipeline = ["mypy-boto3-datapipeline (>=1.24.0,<1.25.0)"]
-datasync = ["mypy-boto3-datasync (>=1.24.0,<1.25.0)"]
 dax = ["mypy-boto3-dax (>=1.24.0,<1.25.0)"]
 detective = ["mypy-boto3-detective (>=1.24.0,<1.25.0)"]
 devicefarm = ["mypy-boto3-devicefarm (>=1.24.0,<1.25.0)"]
@@ -358,7 +358,6 @@ resource-groups = ["mypy-boto3-resource-groups (>=1.24.0,<1.25.0)"]
 resourcegroupstaggingapi = ["mypy-boto3-resourcegroupstaggingapi (>=1.24.0,<1.25.0)"]
 robomaker = ["mypy-boto3-robomaker (>=1.24.0,<1.25.0)"]
 route53 = ["mypy-boto3-route53 (>=1.24.0,<1.25.0)"]
-workmail = ["mypy-boto3-workmail (>=1.24.0,<1.25.0)"]
 route53-recovery-cluster = ["mypy-boto3-route53-recovery-cluster (>=1.24.0,<1.25.0)"]
 route53-recovery-control-config = ["mypy-boto3-route53-recovery-control-config (>=1.24.0,<1.25.0)"]
 route53-recovery-readiness = ["mypy-boto3-route53-recovery-readiness (>=1.24.0,<1.25.0)"]
@@ -419,6 +418,7 @@ wellarchitected = ["mypy-boto3-wellarchitected (>=1.24.0,<1.25.0)"]
 wisdom = ["mypy-boto3-wisdom (>=1.24.0,<1.25.0)"]
 workdocs = ["mypy-boto3-workdocs (>=1.24.0,<1.25.0)"]
 worklink = ["mypy-boto3-worklink (>=1.24.0,<1.25.0)"]
+workmail = ["mypy-boto3-workmail (>=1.24.0,<1.25.0)"]
 workmailmessageflow = ["mypy-boto3-workmailmessageflow (>=1.24.0,<1.25.0)"]
 workspaces = ["mypy-boto3-workspaces (>=1.24.0,<1.25.0)"]
 workspaces-web = ["mypy-boto3-workspaces-web (>=1.24.0,<1.25.0)"]
@@ -426,7 +426,7 @@ xray = ["mypy-boto3-xray (>=1.24.0,<1.25.0)"]
 
 [[package]]
 name = "botocore"
-version = "1.27.14"
+version = "1.27.15"
 description = "Low-level, data-driven core of boto 3."
 category = "main"
 optional = false
@@ -442,8 +442,8 @@ crt = ["awscrt (==0.13.8)"]
 
 [[package]]
 name = "botocore-stubs"
-version = "1.27.14"
-description = "Type annotations for botocore 1.27.14 generated with mypy-boto3-builder 7.7.1"
+version = "1.27.15"
+description = "Type annotations for botocore 1.27.15 generated with mypy-boto3-builder 7.7.1"
 category = "dev"
 optional = false
 python-versions = ">=3.6"
@@ -1202,20 +1202,20 @@ black = [
     {file = "black-22.3.0.tar.gz", hash = "sha256:35020b8886c022ced9282b51b5a875b6d1ab0c387b31a065b84db7c33085ca79"},
 ]
 boto3 = [
-    {file = "boto3-1.24.14-py3-none-any.whl", hash = "sha256:490f5e88f5551b33ae3019a37412158b76426d63d1fb910968ade9b6a024e5fe"},
-    {file = "boto3-1.24.14.tar.gz", hash = "sha256:e284705da36faa668c715ae1f74ebbff4320dbfbe3a733df3a8ab076d1ed1226"},
+    {file = "boto3-1.24.15-py3-none-any.whl", hash = "sha256:42485c7c53eda9e49106d49a6bc222062428969dd27164fe346b1433d6de74ee"},
+    {file = "boto3-1.24.15.tar.gz", hash = "sha256:c13ef01bd6c8872e68141060bd046a3baa979e96524391efc880dfde4ed64e11"},
 ]
 boto3-stubs = [
-    {file = "boto3-stubs-1.24.14.tar.gz", hash = "sha256:e4d75b25c0e8c4af2c4b60755f890c2d5b948cdee7fc8d22e4935aa4a5c5ec5f"},
-    {file = "boto3_stubs-1.24.14-py3-none-any.whl", hash = "sha256:36123d7287c5ae95b74b37ec60cfda5652c0976c0106b76da7d6837f76ca5b56"},
+    {file = "boto3-stubs-1.24.15.tar.gz", hash = "sha256:1306e06c58537b0955ff5e4ac2403f6e673b8df96a98ac87c60bbe7b5bcdea3d"},
+    {file = "boto3_stubs-1.24.15-py3-none-any.whl", hash = "sha256:a83e6792c922455304d488058e50249ece9518c525d8af6e5d9fd5385a17bf2d"},
 ]
 botocore = [
-    {file = "botocore-1.27.14-py3-none-any.whl", hash = "sha256:df1e9b208ff93daac7c645b0b04fb6dccd7f20262eae24d87941727025cbeece"},
-    {file = "botocore-1.27.14.tar.gz", hash = "sha256:bb56fa77b8fa1ec367c2e16dee62d60000451aac5140dcce3ebddc167fd5c593"},
+    {file = "botocore-1.27.15-py3-none-any.whl", hash = "sha256:aaa019265dfea61c5355a207b14283161002d4d94e0eb85194dd04f3bdba48be"},
+    {file = "botocore-1.27.15.tar.gz", hash = "sha256:3799d5c8642b29b347418eb26d42e541d0dc24faa5e62bc8b3812722ab2bf139"},
 ]
 botocore-stubs = [
-    {file = "botocore-stubs-1.27.14.tar.gz", hash = "sha256:18006cf1fa064e9914f22ddede07f5d88baee4a88bbc8cc0f69491e3c73dc076"},
-    {file = "botocore_stubs-1.27.14-py3-none-any.whl", hash = "sha256:184c7f0c78bd7a04ecdcc607d4eacc6cb5fe744dadd2fa63be6f9eb89204cab9"},
+    {file = "botocore-stubs-1.27.15.tar.gz", hash = "sha256:4282b917bcd0e5d36027d8f631e564d62444761dcb6c9faf6510eb90568902ae"},
+    {file = "botocore_stubs-1.27.15-py3-none-any.whl", hash = "sha256:59bece4d3a03996d7998b10873545b8338f9c39745eb8bf76c2b669f1e7d38a2"},
 ]
 bs4 = [
     {file = "bs4-0.0.1.tar.gz", hash = "sha256:36ecea1fd7cc5c0c6e4a1ff075df26d50da647b75376626cc186e2212886dd3a"},
