@@ -3,20 +3,34 @@ Context for the FTL environment
 Manage FTL environment variables
 """
 
+import json
 import os
-from typing import Optional, Dict
-
+from typing import Dict
+from typing import Optional
 
 from ftl_python_lib.core.providers.aws.secretsmanager_environ import ProviderSecretsManagerEnviron
+
+
+def push_environ_to_os():
+    current_environ: EnvironmentContext = EnvironmentContext()
+    provider_secretsmanager: ProviderSecretsManagerEnviron = (
+        ProviderSecretsManagerEnviron(environ_context=current_environ)
+    )
+    secrets: Dict[str, str] = provider_secretsmanager.get_value()
+
+    for key, value in secrets.items():
+        if isinstance(value, int):
+            os.environ[key] = str(value)
+        elif isinstance(value, dict):
+            os.environ[key] = json.dumps(value)
+        else:
+            os.environ[key] = value
 
 
 class EnvironmentContext:
     """
     FTL Context about the current environment
     """
-
-    def __init__(self, ) -> None:
-        pass
 
     def __get_value(self, key: str, silent: bool = False) -> str:
         """
@@ -32,16 +46,6 @@ class EnvironmentContext:
         if value is None and silent is False:
             raise ValueError(f"Environment variable {key} is missing")
         return value
-    
-    def push_to_os(self):
-        provider_secretsmanager: ProviderSecretsManagerEnviron = ProviderSecretsManagerEnviron(environ_context=self)
-        secrets: Dict[str, str] = provider_secretsmanager.get_value()
-
-        for key, value in secrets.items():
-            if isinstance(value, int):
-                os.environ[key] = str(value)
-            else:
-                os.environ[key] = value
 
     @property
     def environment(self) -> str:
@@ -50,7 +54,7 @@ class EnvironmentContext:
         """
 
         return self.__get_value(key="FTL_ENVIRONMENT")
-    
+
     @property
     def environment_context_secret_name(self) -> str:
         """
