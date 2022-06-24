@@ -27,9 +27,13 @@ class ProviderSecretsManagerEnviron:
         """
 
         LOGGER.logger.debug("Creating SecretManager provider")
-        self.__secretsmanager_resource = boto3.client("secretsmanager", region_name=environ_context.cloud_region_primary)
+        self.__secretsmanager_resource = boto3.client(
+            "secretsmanager", region_name=environ_context.cloud_region_primary
+        )
 
-        self.__environment_context_secret_name: str = environ_context.environment_context_secret_name
+        self.__environment_context_secret_name: str = (
+            environ_context.environment_context_secret_name
+        )
 
     @DecoratorExponentialBackoff.retry(Exception)
     def get_value(self):
@@ -39,10 +43,16 @@ class ProviderSecretsManagerEnviron:
 
         try:
             secretsmanager_name: str = self.__environment_context_secret_name
-            LOGGER.logger.debug(f"Retrieving value: secretsmanager: {secretsmanager_name}")
+            LOGGER.logger.debug(
+                f"Retrieving value: secretsmanager: {secretsmanager_name}"
+            )
 
-            response = self.__secretsmanager_resource.get_secret_value(SecretId=secretsmanager_name)
-            LOGGER.logger.debug(f"Retrieved value: secretsmanager: {secretsmanager_name}")
+            response = self.__secretsmanager_resource.get_secret_value(
+                SecretId=secretsmanager_name
+            )
+            LOGGER.logger.debug(
+                f"Retrieved value: secretsmanager: {secretsmanager_name}"
+            )
 
             return json.loads(response["SecretString"])
         except botocore.exceptions.ClientError as exc:
