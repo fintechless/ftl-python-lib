@@ -72,6 +72,7 @@ def upgrade():
                 "auth_id": "cb308772-c49d-11ec-9d64-0242ac120002",
                 "first_name": ENVIRON_CONTEXT.owner_first_name,
                 "last_name": ENVIRON_CONTEXT.owner_last_name,
+                "email": ENVIRON_CONTEXT.owner_email,
                 "auth_id": response["data"]["User"]["Username"],
                 "role": "owner",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",

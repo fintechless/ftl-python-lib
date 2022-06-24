@@ -426,10 +426,10 @@ class EnvironmentContext:
     @property
     def message_definitions_host(self) -> str:
         """
-        Get MESSAGE_DEFINITIONS_HOST env variable value
+        Get FTL_MSA_MSG_PARSER_HOST env variable value
         """
 
-        return self.__get_value(key="MESSAGE_DEFINITIONS_HOST")
+        return self.__get_value(key="FTL_MSA_MSG_PARSER_HOST")
 
     @property
     def owner_first_name(self) -> str:
