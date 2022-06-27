@@ -154,10 +154,10 @@ class EnvironmentContext:
     @property
     def runtime_secretsmanager(self) -> str:
         """
-        Get FTL_RUNTIME_SECRETSMANAGER env variable value
+        Get FTL_ENVIRON_CONTEXT_SECRET env variable value
         """
 
-        return self.__get_value(key="FTL_RUNTIME_SECRETSMANAGER")
+        return self.__get_value(key="FTL_ENVIRON_CONTEXT_SECRET")
 
     @property
     def kafka_broker_endpoints(self) -> str:
