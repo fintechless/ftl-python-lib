@@ -75,7 +75,7 @@ def upgrade():
                 "description": "Incoming Messages MicroService: receives and validates ISO 20022 message, transforms into internal format and sends to corresponding processing workflow.",
                 "path": "https://"
                 + ENVIRON_CONTEXT.runtime_bucket
-                + "/git/fintechless/ftl-msa-msg-in/main",
+                + ".s3.amazonaws.com/git/fintechless/ftl-msa-msg-in/main",
                 "runtime": "python",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
@@ -86,7 +86,7 @@ def upgrade():
                 "description": "PACS 008 Messages MicroService: receives internal format incoming message, processes according pacs 008 specific workflow and sends internal format outgoing message.",
                 "path": "https://"
                 + ENVIRON_CONTEXT.runtime_bucket
-                + "/git/fintechless/ftl-msa-msg-pacs-008/main",
+                + ".s3.amazonaws.com/git/fintechless/ftl-msa-msg-pacs-008/main",
                 "runtime": "python",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
@@ -97,7 +97,7 @@ def upgrade():
                 "description": "Outgoing Messages MicroService: receives internal format message, transforms into ISO 20022 format and notifies appropriate client.",
                 "path": "https://"
                 + ENVIRON_CONTEXT.runtime_bucket
-                + "/git/fintechless/ftl-msa-msg-out/main",
+                + ".s3.amazonaws.com/git/fintechless/ftl-msa-msg-out/main",
                 "runtime": "python",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
@@ -108,7 +108,7 @@ def upgrade():
                 "description": "Incoming RabbitMQ MicroService: pulls messages from RabbitMQ incoming queue and pushes them into Fintechless API.",
                 "path": "https://"
                 + ENVIRON_CONTEXT.runtime_bucket
-                + "/git/fintechless/ftl-msa-rmq-in/main",
+                + ".s3.amazonaws.com/git/fintechless/ftl-msa-rmq-in/main",
                 "runtime": "python",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
@@ -119,7 +119,7 @@ def upgrade():
                 "description": "Outgoing RabbitMQ MicroService: pulls messages from Fintechless API and pushes them into RabbitMQ outgoing queue.",
                 "path": "https://"
                 + ENVIRON_CONTEXT.runtime_bucket
-                + "/git/fintechless/ftl-msa-rmq-out/main",
+                + ".s3.amazonaws.com/git/fintechless/ftl-msa-rmq-out/main",
                 "runtime": "python",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
