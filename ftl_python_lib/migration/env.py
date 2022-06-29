@@ -4,6 +4,7 @@ from alembic import context
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 
+from ftl_python_lib.core.context.environment import push_environ_to_os
 from ftl_python_lib.core.providers.mysql.engine import MySqlEngine
 from ftl_python_lib.models.sql.account import ModelAccount
 from ftl_python_lib.models.sql.member import ModelMember
@@ -82,6 +83,7 @@ def run_migrations_online():
             context.run_migrations()
 
 
+push_environ_to_os()
 if context.is_offline_mode():
     run_migrations_offline()
 else:
