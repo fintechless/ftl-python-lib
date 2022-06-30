@@ -1,5 +1,7 @@
 """Create records related to one another via SQLAlchemy's ORM."""
 
+from typing import Dict
+
 from ftl_python_lib.core.context.environment import EnvironmentContext
 from ftl_python_lib.core.context.request import RequestContext
 from ftl_python_lib.core.context.session import SessionContext
@@ -46,56 +48,25 @@ class HelperMapping:
 
         return mapping
 
-    def get_all(
-        self,
-        source: str,
-        source_type: str,
-        content_type: str = None,
-        message_type: str = None,
-    ) -> ModelMapping:
+    def get_all(self, filters: Dict[str, str]) -> ModelMapping:
         """
         Retrive record by source.
 
         :return: Session
         """
-
-        filters = (
-            (ModelMapping.source == source)
-            & (ModelMapping.source_type == source_type)
-            & (ModelMapping.deleted_by.is_(None))
-            & (ModelMapping.deleted_at.is_(None))
-        )
-
-        if content_type is not None:
-            filters = (
-                (ModelMapping.source == source)
-                & (ModelMapping.source_type == source_type)
-                & (ModelMapping.content_type == content_type)
-                & (ModelMapping.deleted_by.is_(None))
-                & (ModelMapping.deleted_at.is_(None))
-            )
-        if message_type is not None:
-            filters = (
-                (ModelMapping.source == source)
-                & (ModelMapping.source_type == source_type)
-                & (ModelMapping.message_type == message_type)
-                & (ModelMapping.deleted_by.is_(None))
-                & (ModelMapping.deleted_at.is_(None))
-            )
-        if message_type is not None and content_type is not None:
-            filters = (
-                (ModelMapping.source == source)
-                & (ModelMapping.source_type == source_type)
-                & (ModelMapping.content_type == content_type)
-                & (ModelMapping.message_type == message_type)
-                & (ModelMapping.deleted_by.is_(None))
-                & (ModelMapping.deleted_at.is_(None))
-            )
-
         try:
-            search_result = self.__session.query(ModelMapping).filter(filters).all()
+            search_result_ = (
+                self.__session.query(ModelMapping)
+                .filter(ModelMapping.deleted_by.is_(None))
+                .filter(ModelMapping.deleted_at.is_(None))
+            )
+            for key, value in filters.items():
+                if value is not None:
+                    search_result_ = search_result_.filter(
+                        getattr(ModelMapping, key) == value
+                    )
 
-            mapping = self._clone_mapping_object(search_result)
+            mapping = self._clone_mapping_object(search_result_.all())
 
             return mapping
         except Exception as exc:
