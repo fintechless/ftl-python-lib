@@ -3,6 +3,7 @@ Provider for AWS SecretsManager
 """
 
 import json
+from typing import Dict, List
 
 import boto3
 import botocore.exceptions
@@ -42,26 +43,35 @@ class ProviderSecretsManagerEnviron:
         """
 
         try:
-            secretsmanager_name: str = self.__environment_context_secret_name
+            secretsmanager_names: str = self.__environment_context_secret_name
             LOGGER.logger.debug(
-                f"Retrieving value: secretsmanager: {secretsmanager_name}"
+                f"Retrieving value: secretsmanager: {secretsmanager_names}"
             )
 
-            response = self.__secretsmanager_resource.get_secret_value(
-                SecretId=secretsmanager_name
-            )
-            LOGGER.logger.debug(
-                f"Retrieved value: secretsmanager: {secretsmanager_name}"
-            )
+            if secretsmanager_names is None:
+                return []
+            
+            res: Dict[str, str] = {}
 
-            return json.loads(response["SecretString"])
+            secretsmanager_names_ : List[str] = secretsmanager_names.split(",")
+            for secretsmanager_name_ in secretsmanager_names_:
+                response = self.__secretsmanager_resource.get_secret_value(
+                    SecretId=secretsmanager_name_
+                )
+                LOGGER.logger.debug(
+                    f"Retrieved value: secretsmanager: {secretsmanager_name_}"
+                )
+
+                res = res | json.loads(response["SecretString"])
+            
+            return res
         except botocore.exceptions.ClientError as exc:
             if exc.response.get("Error").get("Code") == "NoSuchKey":
                 LOGGER.logger.error(
-                    f"NoSuchKey! Could not retrieve value: secretsmanager: {secretsmanager_name}"
+                    f"NoSuchKey! Could not retrieve value: secretsmanager: {secretsmanager_names}"
                 )
                 LOGGER.logger.error(
-                    f"Returning empty body for value: secretsmanager: {secretsmanager_name}"
+                    f"Returning empty body for value: secretsmanager: {secretsmanager_names}"
                 )
 
                 return b""
