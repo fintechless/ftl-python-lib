@@ -48,6 +48,14 @@ class RequestContext:
         """
 
         self.__datetime = UtilsDatetime()
+    
+    @property
+    def default_owner_id(self) -> str:
+        """
+        Return default owner id
+        """
+
+        return "cb308772-c49d-11ec-9d64-0242ac120002"
 
     @property
     def request_id(self) -> str:
@@ -72,6 +80,14 @@ class RequestContext:
         """
 
         return self.__datetime.now
+    
+    @property
+    def requested_at_utc_datetime(self) -> DateTime:
+        """
+        Return the requested_at value as DateTime UTC tz
+        """
+
+        return self.__datetime.now_utc
 
     @property
     def requested_at_isoformat(self) -> str:
@@ -80,6 +96,14 @@ class RequestContext:
         """
 
         return self.__datetime.now_isoformat
+    
+    @property
+    def requested_at_utc_isoformat(self) -> str:
+        """
+        Return the requested_at value as str in ISO format UTC tz
+        """
+
+        return self.__datetime.now_utc_isoformat
 
     @property
     def headers_context(self) -> HeadersContext:

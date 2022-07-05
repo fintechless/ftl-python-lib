@@ -155,6 +155,116 @@ class TypeReceivedMessageProc:
     @property
     def message_version_keys(self) -> TypeReceivedMessageVersionKeys:
         return self.__message_version_keys
+    
+    @property
+    def creditor_name(self) -> str:
+        """
+        Get creditor's name
+        """
+
+        try:
+            return (
+                self.__message_proc.get("Document")
+                .get("FIToFICstmrCdtTrf")
+                .get("CdtTrfTxInf")
+                .get("Cdtr")
+                .get("Nm")
+            )
+        except (ValueError, KeyError):
+            return "N/A"
+
+    @property
+    def creditor_account(self) -> str:
+        """
+        Get creditor's account
+        """
+
+        try:
+            return (
+                self.__message_proc.get("Document")
+                .get("FIToFICstmrCdtTrf")
+                .get("CdtTrfTxInf")
+                .get("CdtrAcct")
+                .get("Id")
+                .get("Othr")
+                .get("Id")
+            )
+        except (ValueError, KeyError):
+            return "N/A"
+
+    @property
+    def debitor_name(self) -> str:
+        """
+        Get debitor's name
+        """
+
+        try:
+            return (
+                self.__message_proc.get("Document")
+                .get("FIToFICstmrCdtTrf")
+                .get("CdtTrfTxInf")
+                .get("Dbtr")
+                .get("Nm")
+            )
+        except (ValueError, KeyError):
+            return "N/A"
+
+    @property
+    def debitor_account(self) -> str:
+        """
+        Get debitor's account
+        """
+
+        try:
+            return (
+                self.__message_proc.get("Document")
+                .get("FIToFICstmrCdtTrf")
+                .get("CdtTrfTxInf")
+                .get("DbtrAcct")
+                .get("Id")
+                .get("Othr")
+                .get("Id")
+            )
+        except (ValueError, KeyError):
+            return "N/A"
+
+    @property
+    def amount(self) -> int:
+        """
+        Get transfer amount
+        """
+
+        try:
+            amount: str = (
+                self.__message_proc.get("Document")
+                .get("FIToFICstmrCdtTrf")
+                .get("CdtTrfTxInf")
+                .get("IntrBkSttlmAmt")
+                .get("#text")
+            )
+
+            if amount.isdigit():
+                return int(amount)
+            return 0
+        except (ValueError, KeyError):
+            return 0
+
+    @property
+    def currency(self) -> str:
+        """
+        Get transfer currency
+        """
+
+        try:
+            return (
+                self.__message_proc.get("Document")
+                .get("FIToFICstmrCdtTrf")
+                .get("CdtTrfTxInf")
+                .get("IntrBkSttlmAmt")
+                .get("@Ccy")
+            )
+        except (ValueError, KeyError):
+            return "N/A"
 
 
 class TypeReceivedMessageOut:

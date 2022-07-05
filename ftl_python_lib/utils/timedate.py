@@ -60,11 +60,27 @@ class UtilsDatetime:
         """
 
         return self.__now
+    
+    @property
+    def now_utc(self) -> DateTime:
+        """
+        Get current timestamp as DateTime or the timestamp parsed from `from_source` during instantiation
+        """
+
+        return self.__now.utcnow()
 
     @property
     def now_isoformat(self) -> str:
         """
-        Get current timestamp as str in ISO format
+        Get current UTC timestamp as str in ISO format
         """
 
         return self.__now.to_iso8601_string()
+    
+    @property
+    def now_utc_isoformat(self) -> str:
+        """
+        Get current TC timestamp as str in ISO format
+        """
+
+        return self.__now.utcnow().to_iso8601_string()
