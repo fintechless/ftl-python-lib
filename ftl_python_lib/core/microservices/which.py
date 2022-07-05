@@ -6,6 +6,7 @@ from ftl_python_lib.core.microservices.api.mapping import MicroserviceApiMapping
 from ftl_python_lib.core.microservices.msa.msg_out import MicroserviceMsaMsgOut
 from ftl_python_lib.core.microservices.msa.msg_pacs_008 import MicroserviceMsaMsgPacs008
 from ftl_python_lib.core.microservices.msa.rmq_out import MicroserviceMsaRmqOut
+from ftl_python_lib.core.microservices.msa.rmq_in import MicroserviceMsaRmqIn
 
 
 def which_microservice_am_i(
@@ -16,6 +17,7 @@ def which_microservice_am_i(
         Literal[ConstantsMicroservicesNames.MSA_MESSAGE_OUT],
         Literal[ConstantsMicroservicesNames.MSA_MSG_PACS_008],
         Literal[ConstantsMicroservicesNames.MSA_RMQ_OUT],
+        Literal[ConstantsMicroservicesNames.MSA_RMQ_IN],
     ]
 ):
     if name in (
@@ -40,5 +42,10 @@ def which_microservice_am_i(
         ConstantsMicroservicesNames.MSA_RMQ_OUT,
     ):
         return MicroserviceMsaRmqOut
+    if name in (
+        ConstantsMicroservicesNames.MSA_RMQ_IN.value,
+        ConstantsMicroservicesNames.MSA_RMQ_IN,
+    ):
+        return MicroserviceMsaRmqIn
 
     raise ValueError(f"Could not find microservice with name '{name}'")

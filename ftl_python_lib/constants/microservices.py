@@ -11,6 +11,7 @@ class ConstantsMicroservicesNames(Enum):
     MSA_MESSAGE_IN = "ftl-msa-msg-in"
     MSA_MESSAGE_OUT = "ftl-msa-msg-out"
     MSA_RMQ_OUT = "ftl-msa-rmq-out"
+    MSA_RMQ_IN = "ftl-msa-rmq-in"
     MSA_MSG_PACS_008 = "ftl-msa-msg-pacs-008"
 
     API_MAPPING = "ftl-api-mapping"
@@ -32,6 +33,10 @@ class ConstantsMictoservicesHttp(Enum):
     MSA_RMQ_OUT = service_url(
         service_name=ConstantsKubernetesServiceNames.MSA_RMQ_OUT.value,
         url_prefix="msa/rmq/out",
+    )
+    MSA_RMQ_IN = service_url(
+        service_name=ConstantsKubernetesServiceNames.MSA_RMQ_IN.value,
+        url_prefix="msa/rmq/in",
     )
     MSA_MSG_PACS_008 = service_url(
         service_name=ConstantsKubernetesServiceNames.MSA_MSG_PACS_008.value,

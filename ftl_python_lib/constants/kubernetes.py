@@ -24,6 +24,7 @@ class ConstantsKubernetesServiceNames(Enum):
     MSA_MESSAGE_IN = "msa-msg-in-svc"
     MSA_MESSAGE_OUT = "msa-msg-out-svc"
     MSA_RMQ_OUT = "msa-rmq-out-svc"
+    MSA_RMQ_IN = "msa-rmq-in-svc"
     MSA_MSG_PACS_008 = "msa-msg-pacs-008-svc"
 
     API_MAPPING = "msa-msg-mapping-svc"
