@@ -258,7 +258,7 @@ def upgrade():
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
-                "id": str(uuid.uuid4()),
+                "id": "3d6d4953-c72b-4a73-8513-eaa3b17321e2",
                 "category_id": "9a18069d-4312-4527-a4e2-b4dd98c46f92",
                 "subcategory_id": "b39e4c33-70e7-4421-92e1-2a23ef79db12",
                 "name": "RabbitMQ",
