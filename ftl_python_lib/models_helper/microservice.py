@@ -291,7 +291,7 @@ class HelperMicroservice:
                 code = json.dumps(accumulator)
         return code
 
-    def construct_dict(self, in_list, accumulator, keys_name):
+    def construct_dict(self, in_list, accumulator, keys_name, parent=True):
         name = in_list[0]
         index = -1
         idx = -1
@@ -306,7 +306,7 @@ class HelperMicroservice:
                     {
                         "name": name,
                         "type": keys_name,
-                        "default": name in ConstantsMicroserviceDefault.DEFAULT.value,
+                        "default": parent and name in ConstantsMicroserviceDefault.DEFAULT.value,
                     }
                 )
             else:
@@ -315,7 +315,7 @@ class HelperMicroservice:
                         "name": name,
                         "children": [],
                         "type": keys_name,
-                        "default": name in ConstantsMicroserviceDefault.DEFAULT.value,
+                        "default": parent and name in ConstantsMicroserviceDefault.DEFAULT.value,
                     }
                 )
             if len(in_list[1::]) != 0:
@@ -323,9 +323,10 @@ class HelperMicroservice:
                     in_list[1::],
                     accumulator[len(accumulator) - 1]["children"],
                     keys_name,
+                    False
                 )
         else:
-            self.construct_dict(in_list[1::], accumulator[index]["children"], keys_name)
+            self.construct_dict(in_list[1::], accumulator[index]["children"], keys_name, False)
 
     def create(
         self, microservice_new: ModelMicroservice, owner_member_id: str
