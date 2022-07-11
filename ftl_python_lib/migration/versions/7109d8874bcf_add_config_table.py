@@ -99,6 +99,18 @@ def upgrade():
             },
             {
                 "id": str(uuid.uuid4()),
+                "var_key": "FTL_ACTIVE_SUBNETS",
+                "active": True,
+                "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
+            },
+            {
+                "id": str(uuid.uuid4()),
+                "var_key": "FTL_PASSIVE_SUBNETS",
+                "active": True,
+                "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
+            },
+            {
+                "id": str(uuid.uuid4()),
                 "var_key": "FTL_DOMAIN",
                 "active": True,
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
