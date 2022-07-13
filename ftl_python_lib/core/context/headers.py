@@ -20,7 +20,7 @@ class HeadersContext:
         result: Dict[str, str] = {}
 
         for key, val in self.__headers.items():
-            if "X-Transaction" in key or "x-transaction" in key:
+            if "X-" in key or "x-" in key:
                 result[key] = val
 
         return result
@@ -32,6 +32,10 @@ class HeadersContext:
     @property
     def transaction_id(self) -> Optional[str]:
         return self.__headers.get("X-Transaction-Id")
+    
+    @property
+    def message_type(self) -> Optional[str]:
+        return self.__headers.get("X-Message-Type")
 
     @property
     def mapping_type(self) -> Optional[str]:

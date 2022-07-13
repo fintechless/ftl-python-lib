@@ -1,3 +1,4 @@
+import json
 from typing import Dict
 from typing import List
 from typing import Union
@@ -12,6 +13,7 @@ from ftl_python_lib.utils.mime import mime_is_xml
 from ftl_python_lib.utils.xml.processing import parse as xml_parse
 from ftl_python_lib.utils.xml.processing import unparse as xml_unparse
 from ftl_python_lib.utils.xml.storage import storage_key
+from ftl_python_lib.utils.to_str import bytes_to_str
 
 
 class TypeReceivedMessageVersionKeys:
@@ -693,7 +695,10 @@ class TypeReceivedMessage:
                 f"Could not retrieve 'message_type' from 'message_proc' due to invalid message: {exception}"
             ) from exception
 
-    def fill_message_version(self) -> None:
+    def fill_message_version(self, from_header: str = None) -> None:
+        if from_header is not None:
+            self.__message_version = from_header
+            return
         try:
             self.__message_version = (
                 self.__message_proc.to_dict()
@@ -702,10 +707,11 @@ class TypeReceivedMessage:
                 .split(":")
                 .pop()
             )
-        except Exception as exception:
-            raise ValueError(
-                f"Could not retrieve 'message_version' from 'message_proc' due to invalid message: {exception}"
-            ) from exception
+        except Exception:
+            self.__message_version = None
+            # raise ValueError(
+            #     f"Could not retrieve 'message_version' from 'message_proc' due to invalid message: {exception}"
+            # ) from exception
 
     def fill_message_version_keys(self) -> None:
         def getval(src: List[str], index: int):
@@ -734,11 +740,12 @@ class TypeReceivedMessage:
             incoming=incoming,
             message_version=self.__message_version,
             requested_at=self.__request_context.requested_at_datetime,
+            content_type=self.__content_type
         )
 
         self.__storage_path = TypeS3Object(
             key=key,
-            body=self.__message_xml,
+            body=self.__message_raw if isinstance(self.__message_raw, (str, bytes)) else json.dumps(bytes_to_str(src=self.__message_raw)),
             bucket=self.__environ_context.deploy_bucket,
         )
 

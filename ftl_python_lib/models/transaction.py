@@ -122,7 +122,10 @@ class ModelTransaction:
         self,
         storage_path: str,
         message_type: str,
-        message: TypeReceivedMessage
+        ht_response_code: str,
+        ht_response_message: str,
+        currency: str,
+        amount: str,
     ) -> TypeTransaction:
         """
         Receive transaction: insert new row with received status
@@ -159,21 +162,20 @@ class ModelTransaction:
 
         LOGGER.logger.debug("Transaction is now received")
 
-        history_transaction: HelperHistoryTransaction = HelperHistoryTransaction(
+        HelperHistoryTransaction(
             request_context=self.__request_context,
             environ_context=self.__environ_context,
-        )
-        history_transaction.create(
+        ).create(
             history_transaction_new=ModelHistoryTransaction(
                 request_id=self.__request_context.request_id,
                 requested_at=self.__request_context.requested_at_utc_isoformat,
                 transaction_id=self.__request_context.transaction_id,
                 status=status,
                 message_type=message_type,
-                response_code="HTTP200",
-                response_message="OK",
-                currency=message.message_proc.currency,
-                amount=message.message_proc.amount,
+                response_code=ht_response_code,
+                response_message=ht_response_message,
+                currency=currency,
+                amount=amount,
                 storage_path=storage_path,
             ),
             owner_member_id=self.__request_context.default_owner_id,
@@ -185,7 +187,10 @@ class ModelTransaction:
         self,
         storage_path: str,
         message_type: str,
-        message: TypeReceivedMessage
+        ht_response_code: str,
+        ht_response_message: str,
+        currency: str,
+        amount: str,
     ) -> TypeTransaction:
         """
         Reject transaction: insert new row with rejected status
@@ -222,21 +227,20 @@ class ModelTransaction:
 
         LOGGER.logger.debug("Transaction is now rejected")
 
-        history_transaction: HelperHistoryTransaction = HelperHistoryTransaction(
+        HelperHistoryTransaction(
             request_context=self.__request_context,
             environ_context=self.__environ_context,
-        )
-        history_transaction.create(
+        ).create(
             history_transaction_new=ModelHistoryTransaction(
                 request_id=self.__request_context.request_id,
                 requested_at=self.__request_context.requested_at_utc_isoformat,
                 transaction_id=self.__request_context.transaction_id,
                 status=status,
                 message_type=message_type,
-                response_code="RJCT",
-                response_message="REJECTED",
-                currency=message.message_proc.currency,
-                amount=message.message_proc.amount,
+                response_code=ht_response_code,
+                response_message=ht_response_message,
+                currency=currency,
+                amount=amount,
                 storage_path=storage_path,
             ),
             owner_member_id=self.__request_context.default_owner_id,
@@ -358,6 +362,10 @@ class ModelTransaction:
         self,
         storage_path: str,
         message_type: str,
+        ht_response_code: str,
+        ht_response_message: str,
+        currency: str,
+        amount: str,
     ) -> TypeTransaction:
         """
         :param storage_path: Path where the XML message is stored
@@ -390,6 +398,25 @@ class ModelTransaction:
         self.__provider_ddb.put_item(item=item)
 
         LOGGER.logger.debug("Transaction is now released")
+
+        HelperHistoryTransaction(
+            request_context=self.__request_context,
+            environ_context=self.__environ_context,
+        ).create(
+            history_transaction_new=ModelHistoryTransaction(
+                request_id=self.__request_context.request_id,
+                requested_at=self.__request_context.requested_at_utc_isoformat,
+                transaction_id=self.__request_context.transaction_id,
+                status=status,
+                message_type=message_type,
+                response_code=ht_response_code,
+                response_message=ht_response_message,
+                currency=currency,
+                amount=amount,
+                storage_path=storage_path,
+            ),
+            owner_member_id=self.__request_context.default_owner_id,
+        )
 
         return item
 
