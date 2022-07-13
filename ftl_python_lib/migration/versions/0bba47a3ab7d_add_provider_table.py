@@ -92,7 +92,7 @@ def upgrade():
                 "subcategory_id": "2fc3580c-651d-4334-a638-a40e712ca9f6",
                 "name": "Amazon API Gateway",
                 "description": "Amazon API Gateway is an AWS service for creating, publishing, maintaining, monitoring, and securing REST, HTTP, and WebSocket APIs at any scale.",
-                "secret_ref": "FTL_AWS_API_GATEWAY_DEV",
+                "secret_ref": "FTL_SECRET_API_GATEWAY_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -101,7 +101,7 @@ def upgrade():
                 "subcategory_id": "71320b40-8737-431d-b066-71a61b079b50",
                 "name": "Amazon Cloudfront",
                 "description": "Amazon CloudFront is a global content delivery network (CDN) service built for high-speed, low-latency performance, security, and developer ease-of-use.",
-                "secret_ref": "FTL_AWS_CLOUDFRONT_DEV",
+                "secret_ref": "FTL_SECRET_CLOUDFRONT_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -110,7 +110,7 @@ def upgrade():
                 "subcategory_id": "41190bc6-c0d0-4ca4-afbe-f50492df3e16",
                 "name": "AWS CodeBuild",
                 "description": "AWS CodeBuild is a fully managed continuous integration service that compiles source code, runs tests, and produces software packages that are ready to deploy.",
-                "secret_ref": "FTL_AWS_CODEBUILD_DEV",
+                "secret_ref": "FTL_SECRET_CODEBUILD_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -119,7 +119,7 @@ def upgrade():
                 "subcategory_id": "03d9189b-89e7-44d2-b170-e1156404d783",
                 "name": "Amazon CodeCommit",
                 "description": "AWS CodeCommit is a secure, highly scalable, managed source control service that hosts private Git repositories.",
-                "secret_ref": "FTL_AWS_CODECOMMIT_DEV",
+                "secret_ref": "FTL_SECRET_CODECOMMIT_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -128,7 +128,7 @@ def upgrade():
                 "subcategory_id": "573da0af-d096-4e3a-b113-038ee1f7631c",
                 "name": "Amazon ECR",
                 "description": "Amazon Elastic Container Registry (ECR) is a fully managed Docker container registry that makes it easy to store, share, and deploy container images.",
-                "secret_ref": "FTL_AWS_ECR_DEV",
+                "secret_ref": "FTL_SECRET_ECR_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -137,7 +137,7 @@ def upgrade():
                 "subcategory_id": "97944992-cea5-4d19-91df-b9f4d31eaf68",
                 "name": "Amazon Cognito",
                 "description": "Amazon Cognito lets you add user sign-up, sign-in, and access control to your web and mobile apps quickly and easily.",
-                "secret_ref": "FTL_AWS_COGNITO_DEV",
+                "secret_ref": "FTL_SECRET_COGNITO_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -146,7 +146,7 @@ def upgrade():
                 "subcategory_id": "07df029c-f2d3-4981-b28e-df00cc8b128f",
                 "name": "Amazon EKS",
                 "description": "Amazon Elastic Kubernetes Service (Amazon EKS) is a managed container service to run and scale Kubernetes applications in the cloud or on-premises.",
-                "secret_ref": "FTL_AWS_EKS_DEV",
+                "secret_ref": "FTL_SECRET_EKS_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -155,7 +155,7 @@ def upgrade():
                 "subcategory_id": "99cfb19e-51b6-404f-86be-c51b7f288ea6",
                 "name": "Amazon ELB",
                 "description": "Amazon Elastic Load Balancing (ELB) automatically distributes incoming application traffic across multiple targets and virtual appliances in one or more Availability Zones (AZs).",
-                "secret_ref": "FTL_AWS_ELB_DEV",
+                "secret_ref": "FTL_SECRET_ELB_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -164,7 +164,7 @@ def upgrade():
                 "subcategory_id": "0f8b6316-030b-4e27-94fa-62ca3fda71f5",
                 "name": "AWS App Mesh",
                 "description": "AWS App Mesh is a service mesh that provides application-level networking to make it easy for your services to communicate with each other across multiple types of compute infrastructure.",
-                "secret_ref": "FTL_AWS_APP_MESH_DEV",
+                "secret_ref": "FTL_SECRET_APP_MESH_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -173,7 +173,7 @@ def upgrade():
                 "subcategory_id": "d7f3912c-14b7-47df-aeaf-5b599521f7c3",
                 "name": "Amazon VPC",
                 "description": "Amazon Virtual Private Cloud (VPC) is a service that lets you launch AWS resources in a logically isolated virtual network that you define.",
-                "secret_ref": "FTL_AWS_VPC_DEV",
+                "secret_ref": "FTL_SECRET_VPC_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -182,7 +182,7 @@ def upgrade():
                 "subcategory_id": "ba70d7fd-48c5-46db-9c43-40dfea3cfcae",
                 "name": "Amazon WAF",
                 "description": "AWS WAF is a web application firewall that helps protect Web Apps or APIs against common exploits and bots that may affect availability, compromise security, or consume excessive resources.",
-                "secret_ref": "FTL_AWS_WAF_DEV",
+                "secret_ref": "FTL_SECRET_WAF_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -191,7 +191,7 @@ def upgrade():
                 "subcategory_id": "71c8e74b-b8f2-4898-ae3f-8ea7f8525cd8",
                 "name": "Amazon Elasticache",
                 "description": "Amazon ElastiCache is a fully managed, in-memory caching service supporting flexible, real-time use cases. ElastiCache is compatible with Redis and Memcached.",
-                "secret_ref": "FTL_AWS_SNS_DEV",
+                "secret_ref": "FTL_SECRET_SNS_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -200,7 +200,7 @@ def upgrade():
                 "subcategory_id": "72cc3961-b95e-486b-b08d-eda40ecbf47a",
                 "name": "AWS Lake Formation",
                 "description": "AWS Lake Formation is a service that makes it easy to set up a secure data lake, centralized and curated repository that stores all your data in its original form.",
-                "secret_ref": "FTL_AWS_LAKE_FORMATION_DEV",
+                "secret_ref": "FTL_SECRET_LAKE_FORMATION_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -209,7 +209,7 @@ def upgrade():
                 "subcategory_id": "a76cf375-ad6e-4b10-926f-85affe42bd5e",
                 "name": "Amazon Redshift",
                 "description": "Amazon Redshift is a fast, fully managed, petabyte-scale data warehouse service that makes it simple and cost-effective to efficiently analyze all your data using your existing business intelligence tools.",
-                "secret_ref": "FTL_AWS_READSHIFT_DEV",
+                "secret_ref": "FTL_SECRET_REDSHIFT_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -218,7 +218,7 @@ def upgrade():
                 "subcategory_id": "b8ba59bc-6f17-4e0f-b4e9-4cb479b460d5",
                 "name": "Amazon DynamoDB",
                 "description": "Amazon DynamoDB is a fully managed, serverless, key-value NoSQL database designed to run high-performance applications at any scale.",
-                "secret_ref": "FTL_AWS_DYNAMODB_DEV",
+                "secret_ref": "FTL_SECRET_DYNAMODB_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -227,7 +227,7 @@ def upgrade():
                 "subcategory_id": "b11cd1e2-4cc7-4937-be7b-5992cd2e8a7d",
                 "name": "Amazon RDS",
                 "description": "Amazon RDS is a managed relational database service that provides you six familiar database engines to choose from, including MySQL, MariaDB, PostgreSQL, Oracle, Microsoft SQL Server, and Amazon Aurora.",
-                "secret_ref": "FTL_RDS_DEV",
+                "secret_ref": "FTL_SECRET_RDS_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -236,7 +236,7 @@ def upgrade():
                 "subcategory_id": "7b0314eb-fede-4d13-854d-18c30c3e0833",
                 "name": "AWS Secrets Manager",
                 "description": "AWS Secrets Manager helps you protect secrets needed to access your applications, services, and IT resources.",
-                "secret_ref": "FTL_AWS_SECRETS_MANAGER_DEV",
+                "secret_ref": "FTL_SECRET_SECRETS_MANAGER_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -245,7 +245,7 @@ def upgrade():
                 "subcategory_id": "d645746b-dd96-4a78-80a3-7137b732dd91",
                 "name": "Amazon S3",
                 "description": "Amazon S3 is cloud object storage with industry-leading scalability, data availability, security, and performance.",
-                "secret_ref": "FTL_AWS_S3_DEV",
+                "secret_ref": "FTL_SECRET_S3_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -254,7 +254,7 @@ def upgrade():
                 "subcategory_id": "5d3bf644-12e7-41e6-ad78-85b8f2fb2005",
                 "name": "Amazon SNS",
                 "description": "Amazon Simple Notification Service (Amazon SNS) is a fully managed messaging service for both application-to-application (A2A) and application-to-person (A2P) communication.",
-                "secret_ref": "FTL_AWS_SNS_DEV",
+                "secret_ref": "FTL_SECRET_SNS_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -263,7 +263,7 @@ def upgrade():
                 "subcategory_id": "b39e4c33-70e7-4421-92e1-2a23ef79db12",
                 "name": "RabbitMQ",
                 "description": "RabbitMQ is an open-source message-broker software that implemented the Advanced Message Queuing Protocol.",
-                "secret_ref": "FTL_RABBITMQ_DEV",
+                "secret_ref": "FTL_SECRET_RABBITMQ_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -272,7 +272,7 @@ def upgrade():
                 "subcategory_id": "9a18069d-4312-4527-a4e2-b4dd98c46f92",
                 "name": "Amazon MSK",
                 "description": "Amazon MSK is a fully managed, secure, and highly available Apache Kafka service that makes it easy to ingest and process streaming data in real time.",
-                "secret_ref": "FTL_AWS_MSK_DEV",
+                "secret_ref": "FTL_SECRET_MSK_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             # {
@@ -281,7 +281,7 @@ def upgrade():
             #     "subcategory_id": "b39e4c33-70e7-4421-92e1-2a23ef79db12",
             #     "name": "ActiveMQ",
             #     "description": "Apache ActiveMQ is an open source message broker written in Java.",
-            #     "secret_ref": "FTL_ACTIVEMQ_DEV",
+            #     "secret_ref": "FTL_SECRET_ACTIVEMQ_DEFAULT",
             #     "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             # },
             {
@@ -290,7 +290,7 @@ def upgrade():
                 "subcategory_id": "6f81cd83-e89b-4211-a29c-a02d32b2bd7d",
                 "name": "SFTP",
                 "description": "SSH File Transfer Protocol (aka SFTP) is a network protocol that provides file access, file transfer and file management over any reliable data stream.",
-                "secret_ref": "FTL_SFTP_DEV",
+                "secret_ref": "FTL_SECRET_SFTP_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -299,7 +299,7 @@ def upgrade():
                 "subcategory_id": "81b3d089-c8f1-4147-a3ff-a7eec60b58be",
                 "name": "HTTPS",
                 "description": "Hypertext Transfer Protocol Secure (aka HTTPS) is an extension of HTTP, used for secure communication over a computer network, and is widely used on the Internet.",
-                "secret_ref": "FTL_HTTPS_DEV",
+                "secret_ref": "FTL_SECRET_HTTPS_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -308,7 +308,7 @@ def upgrade():
                 "subcategory_id": "2fc3580c-651d-4334-a638-a40e712ca9f6",
                 "name": "Google API Gateway",
                 "description": "API Gateway enables you to provide secure access to your backend services through a well-defined REST API that is consistent across all of your services, regardless of the service implementation.",
-                "secret_ref": "FTL_GCP_API_GATEWAY_DEV",
+                "secret_ref": "FTL_SECRET_API_GATEWAY_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -317,7 +317,7 @@ def upgrade():
                 "subcategory_id": "71320b40-8737-431d-b066-71a61b079b50",
                 "name": "Google Cloud CDN",
                 "description": "Cloud CDN enables customers to deliver content hosted on-premises or in another cloud over Google's high-performance distributed edge caching infrastructure.",
-                "secret_ref": "FTL_GCP_CLOUD_CDN_DEV",
+                "secret_ref": "FTL_SECRET_CLOUD_CDN_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -326,7 +326,7 @@ def upgrade():
                 "subcategory_id": "41190bc6-c0d0-4ca4-afbe-f50492df3e16",
                 "name": "Google Cloud Build",
                 "description": "Cloud Build is a fully managed continuous integration, delivery & deployment platform that lets you run fast, consistent, reliable automated builds.",
-                "secret_ref": "FTL_GCP_CLOUD_BUILD_DEV",
+                "secret_ref": "FTL_SECRET_CLOUD_BUILD_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -335,7 +335,7 @@ def upgrade():
                 "subcategory_id": "03d9189b-89e7-44d2-b170-e1156404d783",
                 "name": "Google Cloud Source Repositories",
                 "description": "Cloud Source Repositories are fully featured, private Git repositories hosted on Google Cloud used for collaborative, version-controlled development of any app or service.",
-                "secret_ref": "FTL_GCP_CLOUD_SOURCE_REPO_DEV",
+                "secret_ref": "FTL_SECRET_CLOUD_SOURCE_REPO_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -344,7 +344,7 @@ def upgrade():
                 "subcategory_id": "573da0af-d096-4e3a-b113-038ee1f7631c",
                 "name": "Google Container Registry",
                 "description": "Container Registry is a fully managed service for storing private container images.",
-                "secret_ref": "FTL_GCP_CONTAINER_REGISTRY_DEV",
+                "secret_ref": "FTL_SECRET_CONTAINER_REGISTRY_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -353,7 +353,7 @@ def upgrade():
                 "subcategory_id": "97944992-cea5-4d19-91df-b9f4d31eaf68",
                 "name": "Google Identity Platform",
                 "description": "Customer identity and access management (CIAM) platform that helps organizations add identity and access management functionality to their applications, protect user accounts, and scale with confidence on Google Cloud.",
-                "secret_ref": "FTL_GCP_IDENTITY_PLATFORM_DEV",
+                "secret_ref": "FTL_SECRET_IDENTITY_PLATFORM_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -362,7 +362,7 @@ def upgrade():
                 "subcategory_id": "07df029c-f2d3-4981-b28e-df00cc8b128f",
                 "name": "Google GKE",
                 "description": "Google Kubernetes Engine (GKE) is a managed kubernetes service, production-ready environment for running containerized applications.",
-                "secret_ref": "FTL_GCP_GKE_DEV",
+                "secret_ref": "FTL_SECRET_GKE_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -371,7 +371,7 @@ def upgrade():
                 "subcategory_id": "99cfb19e-51b6-404f-86be-c51b7f288ea6",
                 "name": "Google Cloud Load Balancing",
                 "description": "Cloud Load Balancing (LB) allows you to put your resources behind a single IP address that is externally accessible or internal to your Virtual Private Cloud (VPC) network.",
-                "secret_ref": "FTL_GCP_CLOUD_LB_DEV",
+                "secret_ref": "FTL_SECRET_CLOUD_LB_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -380,7 +380,7 @@ def upgrade():
                 "subcategory_id": "0f8b6316-030b-4e27-94fa-62ca3fda71f5",
                 "name": "Google Service Mesh",
                 "description": "Service Mesh is a suite of tools that helps you monitor and manage a reliable service mesh on-premises or on Google Cloud.",
-                "secret_ref": "FTL_GCP_SERVICE_MASH_DEV",
+                "secret_ref": "FTL_SECRET_SERVICE_MASH_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -389,7 +389,7 @@ def upgrade():
                 "subcategory_id": "d7f3912c-14b7-47df-aeaf-5b599521f7c3",
                 "name": "Google VPC",
                 "description": "Virtual Private Cloud (VPC) provides networking functionality to Compute Engine virtual machine (VM) instances, Google Kubernetes Engine (GKE) containers, and the App Engine flexible environment.",
-                "secret_ref": "FTL_GCP_VPC_DEV",
+                "secret_ref": "FTL_SECRET_VPC_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -398,7 +398,7 @@ def upgrade():
                 "subcategory_id": "ba70d7fd-48c5-46db-9c43-40dfea3cfcae",
                 "name": "Google Cloud Armor",
                 "description": "Cloud Armor is a network security service that provides defenses against DDoS and application attacks, and offers a rich set of WAF rules.",
-                "secret_ref": "FTL_GCP_CLOUD_ARMOR_DEV",
+                "secret_ref": "FTL_SECRET_CLOUD_ARMOR_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -407,7 +407,7 @@ def upgrade():
                 "subcategory_id": "71c8e74b-b8f2-4898-ae3f-8ea7f8525cd8",
                 "name": "Google Memorystore",
                 "description": "Memorystore provides a fully-managed service that is powered by in-memory data store (e.g. Redis or Memcached) to build application caches that provide sub-millisecond data access.",
-                "secret_ref": "FTL_GCP_MEMORYSTORE_DEV",
+                "secret_ref": "FTL_SECRET_MEMORYSTORE_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -416,7 +416,7 @@ def upgrade():
                 "subcategory_id": "72cc3961-b95e-486b-b08d-eda40ecbf47a",
                 "name": "Google BigLake",
                 "description": "BigLake is a unified storage engine that simplifies data access for data warehouses and lakes by providing uniform fine-grained access control across multi-cloud storage and open formats.",
-                "secret_ref": "FTL_GCP_BIGLAKE_DEV",
+                "secret_ref": "FTL_SECRET_BIGLAKE_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -425,7 +425,7 @@ def upgrade():
                 "subcategory_id": "a76cf375-ad6e-4b10-926f-85affe42bd5e",
                 "name": "Google BigQuery",
                 "description": "BigQuery is a serverless, cost-effective and multicloud data warehouse designed to help you turn big data into valuable business insights.",
-                "secret_ref": "FTL_GCP_BIGQUERY_DEV",
+                "secret_ref": "FTL_SECRET_BIGQUERY_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -434,7 +434,7 @@ def upgrade():
                 "subcategory_id": "b8ba59bc-6f17-4e0f-b4e9-4cb479b460d5",
                 "name": "Google Bigtable",
                 "description": "Bigtable is a fully managed, scalable NoSQL database service for large analytical and operational workloads with up to 99.999% availability.",
-                "secret_ref": "FTL_GCP_BIGTABLE_DEV",
+                "secret_ref": "FTL_SECRET_BIGTABLE_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -443,7 +443,7 @@ def upgrade():
                 "subcategory_id": "b11cd1e2-4cc7-4937-be7b-5992cd2e8a7d",
                 "name": "Google Cloud SQL",
                 "description": "Cloud SQL is a fully managed relational database service for MySQL, PostgreSQL, and SQL Server.",
-                "secret_ref": "FTL_GCP_CLOUD_SQL_DEV",
+                "secret_ref": "FTL_SECRET_CLOUD_SQL_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -452,7 +452,7 @@ def upgrade():
                 "subcategory_id": "7b0314eb-fede-4d13-854d-18c30c3e0833",
                 "name": "Google Secret Manager",
                 "description": "Secret Manager stores sensitive data like API keys, passwords, certificates, and provides convenience while improving security.",
-                "secret_ref": "FTL_GCP_SECRET_MANAGER_DEV",
+                "secret_ref": "FTL_SECRET_SECRET_MANAGER_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -461,7 +461,7 @@ def upgrade():
                 "subcategory_id": "d645746b-dd96-4a78-80a3-7137b732dd91",
                 "name": "Google Cloud Storage",
                 "description": "Cloud Storage is a RESTful online file storage web service for storing and accessing data on Google Cloud Platform infrastructure.",
-                "secret_ref": "FTL_GCP_STORAGE_DEV",
+                "secret_ref": "FTL_SECRET_STORAGE_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -470,7 +470,7 @@ def upgrade():
                 "subcategory_id": "5d3bf644-12e7-41e6-ad78-85b8f2fb2005",
                 "name": "Google Pub/Sub",
                 "description": "Pub/Sub works as a messaging middleware for traditional service integration or a simple communication medium for modern microservices.",
-                "secret_ref": "FTL_GCP_PUB_SUB_DEV",
+                "secret_ref": "FTL_SECRET_PUB_SUB_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
             {
@@ -479,7 +479,7 @@ def upgrade():
                 "subcategory_id": "9a18069d-4312-4527-a4e2-b4dd98c46f92",
                 "name": "Confluent Kafka",
                 "description": "Confluent is the complete event streaming platform, a fully managed Kafka service that allows data streaming on cloud, serverless, or on-prem.",
-                "secret_ref": "FTL_KAFKA_DEV",
+                "secret_ref": "FTL_SECRET_KAFKA_DEFAULT",
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
             },
         ],
