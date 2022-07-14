@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ftl_python_lib"
-version = "0.0.17"
+version = "0.0.18"
 description = "Fintechless Python Library (Fintechless is the Serverless Platform for Financial Institutions and Fintechs)"
 authors = ["Fintechless <hello@fintechless.com>"]
 license = "Mozilla Public License 2.0"
