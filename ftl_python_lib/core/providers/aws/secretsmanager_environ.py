@@ -30,7 +30,7 @@ class ProviderSecretsManagerEnviron:
 
         LOGGER.logger.debug("Creating SecretManager provider")
         self.__secretsmanager_resource = boto3.client(
-            "secretsmanager", region_name=environ_context.cloud_region_primary
+            "secretsmanager", region_name=environ_context.active_region
         )
 
         self.__environment_context_secret_name: str = (

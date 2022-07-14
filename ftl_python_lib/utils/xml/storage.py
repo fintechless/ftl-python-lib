@@ -1,13 +1,18 @@
 import os
 from typing import Optional
 
+from ftl_python_lib.utils.mime import mime_is_json
+from ftl_python_lib.utils.mime import mime_is_xml
 from ftl_python_lib.utils.timedate import DateTime
 from ftl_python_lib.utils.timezone import get_timezone
-from ftl_python_lib.utils.mime import mime_is_json, mime_is_xml
 
 
 def storage_key(
-    transaction_id: str, incoming: bool, message_version: Optional[str], requested_at: DateTime, content_type: str
+    transaction_id: str,
+    incoming: bool,
+    message_version: Optional[str],
+    requested_at: DateTime,
+    content_type: str,
 ) -> str:
     """
     :param incoming: Destination folder in S3
@@ -26,16 +31,16 @@ def storage_key(
 
     if message_version is None:
         key: str = os.path.join(
-        in_out,
-        str(requested_at.year),
-        str(requested_at.month).zfill(2),
-        str(requested_at.day).zfill(2),
-        str(requested_at.hour).zfill(2),
-        str(requested_at.minute).zfill(2),
-        str(requested_at.second).zfill(2),
-        f"{microsecond}{timezone}",
-        f"{transaction_id}.{ext}",
-    )
+            in_out,
+            str(requested_at.year),
+            str(requested_at.month).zfill(2),
+            str(requested_at.day).zfill(2),
+            str(requested_at.hour).zfill(2),
+            str(requested_at.minute).zfill(2),
+            str(requested_at.second).zfill(2),
+            f"{microsecond}{timezone}",
+            f"{transaction_id}.{ext}",
+        )
     else:
         key: str = os.path.join(
             in_out,

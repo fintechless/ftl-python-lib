@@ -69,11 +69,16 @@ class HelperCodeBuild:
             .first()
         )
 
-        path_tree = microservice.path.split('/')
+        path_tree = microservice.path.split("/")
         del path_tree[:3]
-        self.__microservice_storage_active = "/".join(["s3:/", self.__environ_context.runtime_bucket] + path_tree)
-        self.__microservice_storage_passive = self.__microservice_storage_active.replace(
-            self.__environ_context.active_region, self.__environ_context.passive_region
+        self.__microservice_storage_active = "/".join(
+            ["s3:/", self.__environ_context.runtime_bucket] + path_tree
+        )
+        self.__microservice_storage_passive = (
+            self.__microservice_storage_active.replace(
+                self.__environ_context.active_region,
+                self.__environ_context.passive_region,
+            )
         )
 
     def build_active(self):

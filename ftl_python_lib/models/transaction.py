@@ -18,9 +18,9 @@ from ftl_python_lib.core.log import LOGGER
 from ftl_python_lib.core.providers.aws.dynamodb import ProviderDynamoDb
 from ftl_python_lib.models.sql.history_transaction import ModelHistoryTransaction
 from ftl_python_lib.models_helper.history_transaction import HelperHistoryTransaction
+from ftl_python_lib.typings.iso20022.received_message import TypeReceivedMessage
 from ftl_python_lib.typings.models.transaction import TypeTransaction
 from ftl_python_lib.utils.timedate import UtilsDatetime
-from ftl_python_lib.typings.iso20022.received_message import TypeReceivedMessage
 
 
 class ModelTransaction:

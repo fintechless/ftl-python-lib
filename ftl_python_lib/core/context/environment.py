@@ -96,22 +96,6 @@ class EnvironmentContext:
         return self.__get_value(key="FTL_CLOUD_PROVIDER_API_ENDPOINT_URL", silent=True)
 
     @property
-    def cloud_region_primary(self) -> str:
-        """
-        Get FTL_CLOUD_REGION_PRIMARY env variable value
-        """
-
-        return self.__get_value(key="FTL_ACTIVE_REGION")
-
-    @property
-    def cloud_region_secondary(self) -> str:
-        """
-        Get FTL_CLOUD_REGION_SECONDARY env variable value
-        """
-
-        return self.__get_value(key="FTL_PASSIVE_REGION")
-
-    @property
     def msa_uuid_ttl(self) -> int:
         """
         Get FTL_MSA_UUID_TTL env variable value
