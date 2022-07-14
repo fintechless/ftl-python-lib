@@ -1,9 +1,13 @@
 """Create records related to one another via SQLAlchemy's ORM."""
 
 
+import uuid
+
 from sqlalchemy import CHAR
 from sqlalchemy import and_
 from sqlalchemy import func
+from sqlalchemy.exc import IntegrityError
+from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.sql.expression import cast
 
 from ftl_python_lib.constants.models.transaction import ConstantsTransactionStatus
@@ -30,6 +34,30 @@ class HelperHistoryTransaction:
 
         session = SessionContext()
         self.__session = session.get_session()
+
+    def create(
+        self, history_transaction_new: ModelHistoryTransaction, owner_member_id: str
+    ) -> ModelHistoryTransaction:
+        """
+        Create new HistoryTransaction
+        """
+
+        try:
+            history_transaction_new.id = str(uuid.uuid4())
+            history_transaction_new.created_by = owner_member_id
+
+            self.__session.add(history_transaction_new)
+            self.__session.commit()
+
+            return history_transaction_new
+        except IntegrityError as exc:
+            LOGGER.logger.error(exc)
+            raise exc
+        except SQLAlchemyError as exc:
+            LOGGER.logger.error(
+                f"Unexpected error when creating history transaction: {exc}"
+            )
+            raise exc
 
     def get_last_execution(self):
         """
