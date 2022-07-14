@@ -13,8 +13,8 @@ from alembic import op
 from ftl_python_lib.models.sql.config import ModelConfig
 
 # revision identifiers, used by Alembic.
-revision = '7d087cf0d65e'
-down_revision = '4be503b72296'
+revision = "7d087cf0d65e"
+down_revision = "4be503b72296"
 branch_labels = None
 depends_on = None
 

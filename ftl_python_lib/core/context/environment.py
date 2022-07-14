@@ -454,3 +454,35 @@ class EnvironmentContext:
         """
 
         return self.__get_value(key="FTL_OWNER_EMAIL")
+
+    @property
+    def codebuild_project_docker(self) -> str:
+        """
+        Get FTL_CODEBUILD_PROJECT_DOCKER env variable value
+        """
+
+        return self.__get_value(key="FTL_CODEBUILD_PROJECT_DOCKER")
+
+    @property
+    def codebuild_project_api(self) -> str:
+        """
+        Get FTL_CODEBUILD_PROJECT_API env variable value
+        """
+
+        return self.__get_value(key="FTL_CODEBUILD_PROJECT_API")
+
+    @property
+    def active_region(self) -> str:
+        """
+        Get FTL_ACTIVE_REGION env variable value
+        """
+
+        return self.__get_value(key="FTL_ACTIVE_REGION")
+
+    @property
+    def passive_region(self) -> str:
+        """
+        Get FTL_PASSIVE_REGION env variable value
+        """
+
+        return self.__get_value(key="FTL_PASSIVE_REGION")

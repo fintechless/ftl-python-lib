@@ -3,7 +3,8 @@ Provider for AWS SecretsManager
 """
 
 import json
-from typing import Dict, List
+from typing import Dict
+from typing import List
 
 import boto3
 import botocore.exceptions
@@ -50,10 +51,10 @@ class ProviderSecretsManagerEnviron:
 
             if secretsmanager_names is None:
                 return []
-            
+
             res: Dict[str, str] = {}
 
-            secretsmanager_names_ : List[str] = secretsmanager_names.split(",")
+            secretsmanager_names_: List[str] = secretsmanager_names.split(",")
             for secretsmanager_name_ in secretsmanager_names_:
                 response = self.__secretsmanager_resource.get_secret_value(
                     SecretId=secretsmanager_name_
@@ -63,7 +64,7 @@ class ProviderSecretsManagerEnviron:
                 )
 
                 res = res | json.loads(response["SecretString"])
-            
+
             return res
         except botocore.exceptions.ClientError as exc:
             if exc.response.get("Error").get("Code") == "NoSuchKey":

@@ -18,8 +18,10 @@ from ftl_python_lib.core.context.environment import EnvironmentContext
 from ftl_python_lib.core.context.request import RequestContext
 from ftl_python_lib.core.context.session import SessionContext
 from ftl_python_lib.core.log import LOGGER
+from ftl_python_lib.core.providers.aws.s3 import ProviderS3
 from ftl_python_lib.models.sql.microservice import ModelMicroservice
 from ftl_python_lib.models.sql.transaction import ModelTransaction
+from ftl_python_lib.typings.providers.aws.s3object import TypeS3Object
 
 
 class HelperMicroservice:
@@ -37,6 +39,10 @@ class HelperMicroservice:
 
         session = SessionContext()
         self.__session = session.get_session()
+        self.__provider_s3: ProviderS3 = ProviderS3(
+            request_context=self.__request_context,
+            environ_context=self.__environ_context,
+        )
 
     def get_by_id(self, id: str) -> ModelMicroservice:
         """
@@ -217,7 +223,11 @@ class HelperMicroservice:
             raise exc
 
     def update(
-        self, microservice_update: ModelMicroservice, owner_member_id: str
+        self,
+        microservice_update: ModelMicroservice,
+        owner_member_id: str,
+        content: bytes,
+        file_path: str,
     ) -> ModelMicroservice:
         """
         Update record.
@@ -241,6 +251,16 @@ class HelperMicroservice:
                     created_by=owner_member_id,
                 )
             )
+
+            if content is not None and file_path is not None:
+                self.__provider_s3.put_object(
+                    object=TypeS3Object(
+                        bucket=self.__environ_context.runtime_bucket,
+                        key=file_path,
+                        body=content,
+                    )
+                )
+
             self.__session.commit()
 
             return self.get_by_id(new_id)
@@ -306,7 +326,8 @@ class HelperMicroservice:
                     {
                         "name": name,
                         "type": keys_name,
-                        "default": parent and name in ConstantsMicroserviceDefault.DEFAULT.value,
+                        "default": parent
+                        and name in ConstantsMicroserviceDefault.DEFAULT.value,
                     }
                 )
             else:
@@ -315,7 +336,8 @@ class HelperMicroservice:
                         "name": name,
                         "children": [],
                         "type": keys_name,
-                        "default": parent and name in ConstantsMicroserviceDefault.DEFAULT.value,
+                        "default": parent
+                        and name in ConstantsMicroserviceDefault.DEFAULT.value,
                     }
                 )
             if len(in_list[1::]) != 0:
@@ -323,10 +345,12 @@ class HelperMicroservice:
                     in_list[1::],
                     accumulator[len(accumulator) - 1]["children"],
                     keys_name,
-                    False
+                    False,
                 )
         else:
-            self.construct_dict(in_list[1::], accumulator[index]["children"], keys_name, False)
+            self.construct_dict(
+                in_list[1::], accumulator[index]["children"], keys_name, False
+            )
 
     def create(
         self, microservice_new: ModelMicroservice, owner_member_id: str
