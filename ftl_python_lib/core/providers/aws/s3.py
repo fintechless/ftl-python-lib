@@ -46,7 +46,7 @@ class ProviderS3:
         self.__environ_context = environ_context
         self.__s3_resource: S3ServiceResource = boto3.resource(
             "s3",
-            region_name=self.__environ_context.cloud_region_primary,
+            region_name=self.__environ_context.active_region,
             endpoint_url=self.__environ_context.cloud_provider_api_endpoint_url,
         )
         self.__bucket_name: str = self.__environ_context.runtime_bucket

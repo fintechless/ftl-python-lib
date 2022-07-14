@@ -5,8 +5,8 @@ from ftl_python_lib.constants.microservices import ConstantsMicroservicesNames
 from ftl_python_lib.core.microservices.api.mapping import MicroserviceApiMapping
 from ftl_python_lib.core.microservices.msa.msg_out import MicroserviceMsaMsgOut
 from ftl_python_lib.core.microservices.msa.msg_pacs_008 import MicroserviceMsaMsgPacs008
-from ftl_python_lib.core.microservices.msa.rmq_out import MicroserviceMsaRmqOut
 from ftl_python_lib.core.microservices.msa.rmq_in import MicroserviceMsaRmqIn
+from ftl_python_lib.core.microservices.msa.rmq_out import MicroserviceMsaRmqOut
 
 
 def which_microservice_am_i(

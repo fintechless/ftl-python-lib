@@ -12,8 +12,8 @@ from alembic import op
 from ftl_python_lib.models.sql.mapping import ModelMapping
 
 # revision identifiers, used by Alembic.
-revision = '4be503b72296'
-down_revision = '8e049d994423'
+revision = "4be503b72296"
+down_revision = "8e049d994423"
 branch_labels = None
 depends_on = None
 
@@ -30,7 +30,8 @@ def upgrade():
                 "content_type": "application/json",
                 "message_type": "pacs.008",
                 "target": "ftl-msa-rmq-out",
-            },{
+            },
+            {
                 "id": str(uuid.uuid4()),
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
                 "source": "queue-custom-msg-out-pacs-009",
@@ -38,7 +39,8 @@ def upgrade():
                 "content_type": "application/json",
                 "message_type": "pacs.009",
                 "target": "ftl-msa-rmq-out",
-            },{
+            },
+            {
                 "id": str(uuid.uuid4()),
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
                 "source": "ftl-msa-rmq-out",
@@ -46,7 +48,8 @@ def upgrade():
                 "content_type": "application/json",
                 "message_type": "pacs.008",
                 "target": "ftl-msa-msg-out",
-            },{
+            },
+            {
                 "id": str(uuid.uuid4()),
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
                 "source": "ftl-msa-rmq-out",
@@ -54,7 +57,8 @@ def upgrade():
                 "content_type": "application/json",
                 "message_type": "pacs.009",
                 "target": "ftl-msa-msg-out",
-            },{
+            },
+            {
                 "id": str(uuid.uuid4()),
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
                 "source": "ftl-msa-msg-out",
@@ -62,7 +66,8 @@ def upgrade():
                 "content_type": "text/xml",
                 "message_type": "pacs.008",
                 "target": "ftl-msa-rmq-in",
-            },{
+            },
+            {
                 "id": str(uuid.uuid4()),
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
                 "source": "ftl-msa-msg-out",
@@ -70,7 +75,8 @@ def upgrade():
                 "content_type": "text/xml",
                 "message_type": "pacs.009",
                 "target": "ftl-msa-rmq-in",
-            },{
+            },
+            {
                 "id": str(uuid.uuid4()),
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
                 "source": "ftl-msa-rmq-in",
@@ -78,7 +84,8 @@ def upgrade():
                 "content_type": "text/xml",
                 "message_type": "pacs.009",
                 "target": "queue-iso20022-msg-out-pacs-009",
-            },{
+            },
+            {
                 "id": str(uuid.uuid4()),
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
                 "source": "ftl-msa-rmq-out",
@@ -86,7 +93,8 @@ def upgrade():
                 "content_type": "text/xml",
                 "message_type": "pacs.002",
                 "target": "ftl-msa-msg-in",
-            },{
+            },
+            {
                 "id": str(uuid.uuid4()),
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
                 "source": "ftl-msa-rmq-out",
@@ -94,7 +102,8 @@ def upgrade():
                 "content_type": "text/xml",
                 "message_type": "pacs.009",
                 "target": "ftl-msa-msg-in",
-            },{
+            },
+            {
                 "id": str(uuid.uuid4()),
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
                 "source": "ftl-msa-msg-in",
@@ -102,7 +111,8 @@ def upgrade():
                 "content_type": "text/xml",
                 "message_type": "pacs.002",
                 "target": "ftl-msa-msg-pacs-002",
-            },{
+            },
+            {
                 "id": str(uuid.uuid4()),
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
                 "source": "ftl-msa-msg-in",
@@ -110,7 +120,8 @@ def upgrade():
                 "content_type": "text/xml",
                 "message_type": "pacs.008",
                 "target": "ftl-msa-msg-pacs-008",
-            },{
+            },
+            {
                 "id": str(uuid.uuid4()),
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
                 "source": "ftl-msa-msg-in",
@@ -118,7 +129,8 @@ def upgrade():
                 "content_type": "text/xml",
                 "message_type": "pacs.009",
                 "target": "ftl-msa-msg-pacs-009",
-            },{
+            },
+            {
                 "id": str(uuid.uuid4()),
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
                 "source": "ftl-msa-msg-in",
@@ -126,7 +138,8 @@ def upgrade():
                 "content_type": "text/xml",
                 "message_type": "pacs.002",
                 "target": "ftl-msa-msg-out",
-            },{
+            },
+            {
                 "id": str(uuid.uuid4()),
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
                 "source": "ftl-msa-msg-pacs-002",
@@ -134,7 +147,8 @@ def upgrade():
                 "content_type": "text/xml",
                 "message_type": "pacs.002",
                 "target": "ftl-msa-msg-out",
-            },{
+            },
+            {
                 "id": str(uuid.uuid4()),
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
                 "source": "ftl-msa-msg-pacs-008",
@@ -142,7 +156,8 @@ def upgrade():
                 "content_type": "text/xml",
                 "message_type": "pacs.008",
                 "target": "ftl-msa-msg-out",
-            },{
+            },
+            {
                 "id": str(uuid.uuid4()),
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
                 "source": "ftl-msa-msg-pacs-009",
@@ -150,7 +165,8 @@ def upgrade():
                 "content_type": "text/xml",
                 "message_type": "pacs.009",
                 "target": "ftl-msa-msg-out",
-            },{
+            },
+            {
                 "id": str(uuid.uuid4()),
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
                 "source": "ftl-msa-msg-out",
@@ -158,7 +174,8 @@ def upgrade():
                 "content_type": "text/xml",
                 "message_type": "pacs.002",
                 "target": "ftl-msa-rmq-in",
-            },{
+            },
+            {
                 "id": str(uuid.uuid4()),
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
                 "source": "ftl-msa-msg-out",
@@ -166,7 +183,8 @@ def upgrade():
                 "content_type": "text/xml",
                 "message_type": "pacs.008",
                 "target": "ftl-msa-rmq-in",
-            },{
+            },
+            {
                 "id": str(uuid.uuid4()),
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
                 "source": "ftl-msa-msg-out",
@@ -174,7 +192,8 @@ def upgrade():
                 "content_type": "text/xml",
                 "message_type": "pacs.009",
                 "target": "ftl-msa-rmq-in",
-            },{
+            },
+            {
                 "id": str(uuid.uuid4()),
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
                 "source": "ftl-msa-rmq-in",
@@ -182,7 +201,8 @@ def upgrade():
                 "content_type": "text/xml",
                 "message_type": "pacs.002",
                 "target": "queue-iso20022-msg-out-pacs-002",
-            },{
+            },
+            {
                 "id": str(uuid.uuid4()),
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
                 "source": "ftl-msa-rmq-in",
@@ -190,7 +210,8 @@ def upgrade():
                 "content_type": "text/xml",
                 "message_type": "pacs.008",
                 "target": "queue-iso20022-msg-out-pacs-008",
-            },{
+            },
+            {
                 "id": str(uuid.uuid4()),
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
                 "source": "queue-iso20022-msg-in-pacs-002",
@@ -198,7 +219,8 @@ def upgrade():
                 "content_type": "text/xml",
                 "message_type": "pacs.002",
                 "target": "ftl-msa-rmq-out",
-            },{
+            },
+            {
                 "id": str(uuid.uuid4()),
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
                 "source": "queue-iso20022-msg-in-pacs-008",
@@ -206,7 +228,8 @@ def upgrade():
                 "content_type": "text/xml",
                 "message_type": "pacs.008",
                 "target": "ftl-msa-rmq-out",
-            },{
+            },
+            {
                 "id": str(uuid.uuid4()),
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
                 "source": "ftl-msa-rmq-out",
@@ -214,7 +237,8 @@ def upgrade():
                 "content_type": "text/xml",
                 "message_type": "pacs.008",
                 "target": "ftl-msa-msg-in",
-            },{
+            },
+            {
                 "id": str(uuid.uuid4()),
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
                 "source": "ftl-msa-msg-in",
@@ -222,7 +246,8 @@ def upgrade():
                 "content_type": "application/json",
                 "message_type": "pacs.002",
                 "target": "ftl-msa-rmq-in",
-            },{
+            },
+            {
                 "id": str(uuid.uuid4()),
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
                 "source": "ftl-msa-msg-in",
@@ -230,7 +255,8 @@ def upgrade():
                 "content_type": "application/json",
                 "message_type": "pacs.008",
                 "target": "ftl-msa-rmq-in",
-            },{
+            },
+            {
                 "id": str(uuid.uuid4()),
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
                 "source": "ftl-msa-rmq-in",
@@ -238,7 +264,8 @@ def upgrade():
                 "content_type": "application/json",
                 "message_type": "pacs.002",
                 "target": "queue-custom-msg-in-pacs-002",
-            },{
+            },
+            {
                 "id": str(uuid.uuid4()),
                 "created_by": "cb308772-c49d-11ec-9d64-0242ac120002",
                 "source": "ftl-msa-rmq-in",
@@ -246,7 +273,7 @@ def upgrade():
                 "content_type": "application/json",
                 "message_type": "pacs.008",
                 "target": "queue-custom-msg-in-pacs-008",
-            }
+            },
         ],
     )
 

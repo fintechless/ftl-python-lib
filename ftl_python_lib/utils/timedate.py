@@ -60,7 +60,7 @@ class UtilsDatetime:
         """
 
         return self.__now
-    
+
     @property
     def now_utc(self) -> DateTime:
         """
@@ -76,7 +76,7 @@ class UtilsDatetime:
         """
 
         return self.__now.to_iso8601_string()
-    
+
     @property
     def now_utc_isoformat(self) -> str:
         """

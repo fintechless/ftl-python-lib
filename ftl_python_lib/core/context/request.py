@@ -48,7 +48,7 @@ class RequestContext:
         """
 
         self.__datetime = UtilsDatetime()
-    
+
     @property
     def default_owner_id(self) -> str:
         """
@@ -80,7 +80,7 @@ class RequestContext:
         """
 
         return self.__datetime.now
-    
+
     @property
     def requested_at_utc_datetime(self) -> DateTime:
         """
@@ -96,7 +96,7 @@ class RequestContext:
         """
 
         return self.__datetime.now_isoformat
-    
+
     @property
     def requested_at_utc_isoformat(self) -> str:
         """

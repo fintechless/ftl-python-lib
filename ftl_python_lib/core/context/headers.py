@@ -32,7 +32,7 @@ class HeadersContext:
     @property
     def transaction_id(self) -> Optional[str]:
         return self.__headers.get("X-Transaction-Id")
-    
+
     @property
     def message_type(self) -> Optional[str]:
         return self.__headers.get("X-Message-Type")

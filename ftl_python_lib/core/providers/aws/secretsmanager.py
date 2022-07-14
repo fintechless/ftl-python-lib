@@ -33,7 +33,7 @@ class ProviderSecretsManager:
 
         self.__environ_context = environ_context
         self.__secretsmanager_resource = boto3.client(
-            "secretsmanager", region_name=self.__environ_context.cloud_region_primary
+            "secretsmanager", region_name=self.__environ_context.active_region
         )
         self.__secretsmanager_name: str = self.__environ_context.runtime_secretsmanager
 

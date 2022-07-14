@@ -96,22 +96,6 @@ class EnvironmentContext:
         return self.__get_value(key="FTL_CLOUD_PROVIDER_API_ENDPOINT_URL", silent=True)
 
     @property
-    def cloud_region_primary(self) -> str:
-        """
-        Get FTL_CLOUD_REGION_PRIMARY env variable value
-        """
-
-        return self.__get_value(key="FTL_ACTIVE_REGION")
-
-    @property
-    def cloud_region_secondary(self) -> str:
-        """
-        Get FTL_CLOUD_REGION_SECONDARY env variable value
-        """
-
-        return self.__get_value(key="FTL_PASSIVE_REGION")
-
-    @property
     def msa_uuid_ttl(self) -> int:
         """
         Get FTL_MSA_UUID_TTL env variable value
@@ -454,3 +438,35 @@ class EnvironmentContext:
         """
 
         return self.__get_value(key="FTL_OWNER_EMAIL")
+
+    @property
+    def codebuild_project_docker(self) -> str:
+        """
+        Get FTL_CODEBUILD_PROJECT_DOCKER env variable value
+        """
+
+        return self.__get_value(key="FTL_CODEBUILD_PROJECT_DOCKER")
+
+    @property
+    def codebuild_project_api(self) -> str:
+        """
+        Get FTL_CODEBUILD_PROJECT_API env variable value
+        """
+
+        return self.__get_value(key="FTL_CODEBUILD_PROJECT_API")
+
+    @property
+    def active_region(self) -> str:
+        """
+        Get FTL_ACTIVE_REGION env variable value
+        """
+
+        return self.__get_value(key="FTL_ACTIVE_REGION")
+
+    @property
+    def passive_region(self) -> str:
+        """
+        Get FTL_PASSIVE_REGION env variable value
+        """
+
+        return self.__get_value(key="FTL_PASSIVE_REGION")

@@ -10,10 +10,10 @@ from ftl_python_lib.core.providers.aws.s3 import ProviderS3
 from ftl_python_lib.typings.providers.aws.s3object import TypeS3Object
 from ftl_python_lib.utils.mime import mime_is_json
 from ftl_python_lib.utils.mime import mime_is_xml
+from ftl_python_lib.utils.to_str import bytes_to_str
 from ftl_python_lib.utils.xml.processing import parse as xml_parse
 from ftl_python_lib.utils.xml.processing import unparse as xml_unparse
 from ftl_python_lib.utils.xml.storage import storage_key
-from ftl_python_lib.utils.to_str import bytes_to_str
 
 
 class TypeReceivedMessageVersionKeys:
@@ -157,7 +157,7 @@ class TypeReceivedMessageProc:
     @property
     def message_version_keys(self) -> TypeReceivedMessageVersionKeys:
         return self.__message_version_keys
-    
+
     @property
     def creditor_name(self) -> str:
         """
@@ -740,12 +740,14 @@ class TypeReceivedMessage:
             incoming=incoming,
             message_version=self.__message_version,
             requested_at=self.__request_context.requested_at_datetime,
-            content_type=self.__content_type
+            content_type=self.__content_type,
         )
 
         self.__storage_path = TypeS3Object(
             key=key,
-            body=self.__message_raw if isinstance(self.__message_raw, (str, bytes)) else json.dumps(bytes_to_str(src=self.__message_raw)),
+            body=self.__message_raw
+            if isinstance(self.__message_raw, (str, bytes))
+            else json.dumps(bytes_to_str(src=self.__message_raw)),
             bucket=self.__environ_context.deploy_bucket,
         )
 

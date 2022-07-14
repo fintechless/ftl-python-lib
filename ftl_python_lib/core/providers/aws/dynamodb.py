@@ -44,7 +44,7 @@ class ProviderDynamoDb:
 
         self.__ddb_resource: DynamoDBServiceResource = boto3.resource(
             service_name="dynamodb",
-            region_name=self.__environ_context.cloud_region_primary,
+            region_name=self.__environ_context.active_region,
             endpoint_url=self.__environ_context.cloud_provider_api_endpoint_url,
         )
 

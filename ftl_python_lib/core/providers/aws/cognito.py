@@ -89,7 +89,7 @@ class ProviderCognito:
     @DecoratorExponentialBackoff.retry(Exception)
     def invite(self, email: str):
         client = boto3.client(
-            "cognito-idp", region_name=self.__environ_context.cloud_region_primary
+            "cognito-idp", region_name=self.__environ_context.active_region
         )
         try:
             response = client.admin_create_user(
