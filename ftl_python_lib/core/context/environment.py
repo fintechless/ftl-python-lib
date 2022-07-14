@@ -101,7 +101,7 @@ class EnvironmentContext:
         Get FTL_CLOUD_REGION_PRIMARY env variable value
         """
 
-        return self.__get_value(key="FTL_CLOUD_REGION_PRIMARY")
+        return self.__get_value(key="FTL_ACTIVE_REGION")
 
     @property
     def cloud_region_secondary(self) -> str:
@@ -109,7 +109,7 @@ class EnvironmentContext:
         Get FTL_CLOUD_REGION_SECONDARY env variable value
         """
 
-        return self.__get_value(key="FTL_CLOUD_REGION_SECONDARY")
+        return self.__get_value(key="FTL_PASSIVE_REGION")
 
     @property
     def msa_uuid_ttl(self) -> int:
