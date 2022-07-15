@@ -82,12 +82,6 @@ class HelperCodeBuild:
         )
 
     def build_active(self):
-        """
-        Retrive record by id.
-
-        :return: Session
-        """
-
         try:
             LOGGER.logger.debug(
                 f"Start Build in {self.__environ_context.active_region} region"
@@ -110,12 +104,6 @@ class HelperCodeBuild:
             raise exc
 
     def build_passive(self):
-        """
-        Retrive record by id.
-
-        :return: Session
-        """
-
         try:
             LOGGER.logger.debug(
                 f"Start Build in {self.__environ_context.passive_region} region"
@@ -128,6 +116,114 @@ class HelperCodeBuild:
                         "value": self.__microservice_storage_passive,
                         "type": "PLAINTEXT",
                     }
+                ]
+            )
+
+        except Exception as exc:
+            LOGGER.logger.error(
+                f"Unexpected error when get microservice by id: {str(exc)}"
+            )
+            raise exc
+
+    def deploy_repo_active(self):
+        try:
+            LOGGER.logger.debug(
+                f"Start Deploy repo in {self.__environ_context.active_region} region"
+            )
+
+            self.__codebuild_api_active.start_build(
+                [
+                    {
+                        "name": "CICD_REPOSITORY_STORAGE",
+                        "value": self.__microservice_storage_active,
+                        "type": "PLAINTEXT",
+                    },
+                    {
+                        "name": "CICD_THUB_INCLUDE",
+                        "value": "aws_ecr_repository",
+                        "type": "PLAINTEXT",
+                    },
+                ]
+            )
+
+        except Exception as exc:
+            LOGGER.logger.error(
+                f"Unexpected error when get microservice by id: {str(exc)}"
+            )
+            raise exc
+
+    def deploy_repo_passive(self):
+        try:
+            LOGGER.logger.debug(
+                f"Start Deploy repo in {self.__environ_context.passive_region} region"
+            )
+
+            self.__codebuild_api_passive.start_build(
+                [
+                    {
+                        "name": "CICD_REPOSITORY_STORAGE",
+                        "value": self.__microservice_storage_passive,
+                        "type": "PLAINTEXT",
+                    },
+                    {
+                        "name": "CICD_THUB_INCLUDE",
+                        "value": "aws_ecr_repository",
+                        "type": "PLAINTEXT",
+                    },
+                ]
+            )
+
+        except Exception as exc:
+            LOGGER.logger.error(
+                f"Unexpected error when get microservice by id: {str(exc)}"
+            )
+            raise exc
+
+    def deploy_all_active(self):
+        try:
+            LOGGER.logger.debug(
+                f"Start Deploy all in {self.__environ_context.active_region} region"
+            )
+
+            self.__codebuild_api_active.start_build(
+                [
+                    {
+                        "name": "CICD_REPOSITORY_STORAGE",
+                        "value": self.__microservice_storage_active,
+                        "type": "PLAINTEXT",
+                    },
+                    {
+                        "name": "CICD_THUB_INCLUDE",
+                        "value": "aws_",
+                        "type": "PLAINTEXT",
+                    },
+                ]
+            )
+
+        except Exception as exc:
+            LOGGER.logger.error(
+                f"Unexpected error when get microservice by id: {str(exc)}"
+            )
+            raise exc
+
+    def deploy_all_passive(self):
+        try:
+            LOGGER.logger.debug(
+                f"Start Deploy all in {self.__environ_context.passive_region} region"
+            )
+
+            self.__codebuild_api_passive.start_build(
+                [
+                    {
+                        "name": "CICD_REPOSITORY_STORAGE",
+                        "value": self.__microservice_storage_passive,
+                        "type": "PLAINTEXT",
+                    },
+                    {
+                        "name": "CICD_THUB_INCLUDE",
+                        "value": "aws_",
+                        "type": "PLAINTEXT",
+                    },
                 ]
             )
 
