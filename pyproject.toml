@@ -25,7 +25,7 @@ pika = "^1.2.0"
 SQLAlchemy = "^1.4.35"
 alembic = "^1.7.7"
 PyMySQL = "^1.0.2"
-cryptography = "^36.0.2"
+cryptography = "^39.0.1"
 SQLAlchemy-Utils = "^0.38.2"
 bs4 = "^0.0.1"
 
